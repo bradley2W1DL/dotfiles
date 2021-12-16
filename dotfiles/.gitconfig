@@ -1,0 +1,9 @@
+[user]
+	name = bradley2w1dl
+	email = bradley@himaxwell.com
+[push]
+	default = current
+[init]
+	defaultBranch = master
+[core]
+	excludesfile = ~/.gitignore
