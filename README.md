@@ -22,6 +22,7 @@ _todo_:
 - nvm
   - node
 - python (?)
+- oh-my-zsh
 
 `cp ./dotfiles/* ~/`
 
