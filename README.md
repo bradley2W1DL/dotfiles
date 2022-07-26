@@ -48,3 +48,6 @@ git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
 source "${ZDOTDIR:-$HOME}/.zshrc" # or source ~/.bashrc
 ```
 
+**xcode command line tools**
+`xcode-select –install`
+
