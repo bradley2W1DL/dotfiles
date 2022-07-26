@@ -2,8 +2,10 @@
 	name = bradley2w1dl
 	email = bradley@himaxwell.com
 [push]
-	default = current
+  default = current
+[pull]
+  rebase = true
 [init]
-	defaultBranch = master
+	defaultBranch = main 
 [core]
 	excludesfile = ~/.gitignore

@@ -6,12 +6,15 @@ endif
 
 " vim-plug plugin manager
 call plug#begin()
-Plug 'morhetz/gruvbox'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'tstelzer/welpe.vim'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 let g:airline_theme='hybrid'
@@ -25,3 +28,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
