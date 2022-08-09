@@ -16,6 +16,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'tomlion/vim-solidity'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:airline_theme='hybrid'
@@ -36,6 +39,6 @@ autocmd! User GoyoLeave Limelight!
 " Ideally this would be conditional on the presence of NERDTree
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-f> :Files<CR>
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
