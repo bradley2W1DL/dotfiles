@@ -1,2 +1,4 @@
 dotfiles/.oh-my-zsh/*
 dotfiles/.vim/plugged/*
+dotfiles/.config/nvim/lua/user/packer.nvim/
+dotfiles/.config/nvim/plugin/
