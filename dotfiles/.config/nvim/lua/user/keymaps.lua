@@ -28,7 +28,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- shortcut to open up Netrw (file explorer) with a set 30 col size
-keymap("n", "<leader>e", ":Lex 30<cr>", opts) -- <cr> is carriage-return (enter key)
+keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- <cr> is carriage-return (enter key)
 
 -- Resize windows with arrows
 keymap("n", "<C-Up>", ":resize +2<cr>", opts)

@@ -44,13 +44,33 @@ packer.init {
   },
 }
 
-
 -- Install your plugins here
 return packer.startup(function(use)
   -- PLUGINS --
   use "wbthomason/packer.nvim" -- have packer manage itself
   use "nvim-lua/popup.nvim" -- implementation of the Popup API from vim in neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
+
+  -- Colorschemes --
+  use "Rigellute/shades-of-purple.vim"
+  use 'sainnhe/everforest'
+
+  -- cmp plugins --
+  use "hrsh7th/nvim-cmp" -- top-level completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp" -- LSP completions
+
+  -- snippets --
+  use "L3MON4D3/LuaSnip" -- snippet engine
+  use "rafamadriz/friendly-snippets" -- whole buncha snippets
+
+  -- LSP (language server protocol) -- ? not sure about "protocol"
+  use "neovim/nvim-lspconfig"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins
