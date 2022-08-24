@@ -61,11 +61,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -84,7 +84,10 @@ source $ZSH/oh-my-zsh.sh
 alias rake="noglob rake"
 # the argument in this context is the app name, e.g. maxwell-qa
 export CONSOLE_USER=bradley@himaxwell.com
-alias heroku-console='f() { heroku run -a $1 -e CONSOLE_USER=$CONSOLE_USER bundle exec rails console };f'
+alias heroku-console='f() { heroku run -a $1 -e CONSOLE_USER=$CONSOLE_USER "bundle exec rails console -- --nomultiline" };f'
+alias set-upstream="git branch --set-upstream-to=origin/(git branch --show-current) (git branch --show-current)"
+
+alias vim="nvim"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/bird/Applications/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/bird/Applications/google-cloud-sdk/path.zsh.inc'; fi
