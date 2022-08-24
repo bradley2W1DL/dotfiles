@@ -6,8 +6,8 @@ _todo_:
 
 #### Programs
 - iTerm
-- atom
-- rubymine
+- _rubymine_
+- nvim
 - typora
 - spotify
 - chrome
