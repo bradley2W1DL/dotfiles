@@ -71,7 +71,7 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   
   -- Different keybinding command syntax; preferred I think
-  vim.keymap.set("n", "gD", vim.lsp.but.declaration, opts)
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
@@ -80,9 +80,9 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev({ border = "rounded" }), opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next({ border = "rounded" }), opts)
-  vim.keymap.set("n", "gl", vim.diagnostic.show_line_diagnostics({ border = "rounded" }), opts)
+  vim.keymap.set("n", "[d", "<cmd>vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
+  vim.keymap.set("n", "]d", "<cmd>vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
+  vim.keymap.set("n", "gl", "<cmd>vim.diagnostic.show_line_diagnostics({ border = 'rounded' })", opts)
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
 
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]

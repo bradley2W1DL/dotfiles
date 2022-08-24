@@ -1,6 +1,7 @@
 -- chose installed plugin colorscheme or fallback to default
 
-local colorscheme = "shades_of_purple" -- "everforest" is also a good option (with light mode)
+-- "shades_of_purple"
+local colorscheme = "everforest" -- "everforest" is also a good option (with light mode)
 
 local defaultColor = "slate"
 
