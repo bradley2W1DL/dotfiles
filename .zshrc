@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/bradley/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -90,21 +90,21 @@ alias set-upstream="git branch --set-upstream-to=origin/(git branch --show-curre
 alias vim="nvim"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/bird/Applications/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/bird/Applications/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/Applications/google-cloud-sdk/path.zsh.inc' ]; then source '$HOME/Applications/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/bird/Applications/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/bird/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '$HOME/Applications/google-cloud-sdk/completion.zsh.inc' ]; then source '$HOME/Applications/google-cloud-sdk/completion.zsh.inc'; fi
 
 # set Android SDK location, including 'platform-tools'
-export ANDROID_SDK=/Users/bird/Library/Android/sdk
-export PATH=/Users/bird/Library/Android/sdk/platform-tools:$PATH
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
 export PATH="$HOME/.bin:$PATH"
 
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
 
-[ -s "/Users/bradley/.scm_breeze/scm_breeze.sh" ] && source "/Users/bradley/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 export PATH="/usr/local/sbin:$PATH"
 
 # tabtab source for slss package
