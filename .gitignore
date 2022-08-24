@@ -1,11 +1,6 @@
-dotfiles/.oh-my-zsh/*
-dotfiles/.vim/plugged/*
-dotfiles/.config/nvim/lua/user/packer.nvim/
-dotfiles/.config/nvim/plugin/
-dotfiles/.oh-my-zsh/
-
 .oh-my-zsh/
 .vim/plugged/*
 
 .config/nvim/lua/user/packer.nvim/
 .config/nvim/plugin/
+.config/yarn/link/
