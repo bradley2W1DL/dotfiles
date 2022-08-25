@@ -4,3 +4,4 @@
 .config/nvim/lua/user/packer.nvim/
 .config/nvim/plugin/
 .config/yarn/link/
+.DS_Store
