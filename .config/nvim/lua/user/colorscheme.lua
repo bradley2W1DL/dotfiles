@@ -11,3 +11,8 @@ if not status_ok then
   vim.cmd("colorscheme " .. defaultColor)
 end
 
+vim.cmd [[
+  set background=dark
+  let g:everforest_background = "hard"
+]]
+
