@@ -50,6 +50,11 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- have packer manage itself
   use "nvim-lua/popup.nvim" -- implementation of the Popup API from vim in neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
+  --  use {
+  --    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  --    requires = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep' }
+  --  }
+  use "junegunn/fzf.vim"
 
   -- Colorschemes --
   use "Rigellute/shades-of-purple.vim"

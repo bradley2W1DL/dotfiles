@@ -7,7 +7,7 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Remap space as leader key
 --  the default vim <leader> key is backslash "\"
---  this remaps that to just be a space character
+--  this remaps that to be space character
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -30,6 +30,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- shortcut to open up Netrw (file explorer) with a set 30 col size
 keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- <cr> is carriage-return (enter key)
 
+-- quickly clear search highlighting
+keymap("n", "<leader>n", ":noh<cr>", opts)
+
 -- Resize windows with arrows
 keymap("n", "<C-Up>", ":resize +2<cr>", opts)
 keymap("n", "<C-Down>", ":resize -2<cr>", opts)
@@ -42,6 +45,17 @@ keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 keymap("n", "<S-l>", ":bnext<cr>", opts)
 keymap("n", "<S-h>", ":bprevious<cr>", opts)
 
+-- Telescope keymaps (why you so sloooow??)
+-- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+-- keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+-- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+-- keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+-- keymap("n", "<leader>fs", ":Telescope spell_suggest<CR>", opts)
+-- keymap("n", "<leader>fkm", ":Telescope keymaps<CR>", opts)
+
+-- FZF (fuzzy finder keymaps
+keymap("n", "<leader>ff", ":Files<CR>", opts)
+
 -- Insert --
 -- enable "fast-exit" of insert mode with "jk" combo 
 keymap("i", "jk", "<ESC>", opts)
@@ -52,10 +66,11 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move selected text up and down
-keymap("v", "<A-k>", ":m .-2<cr>==", opts) -- TODO these move commands not working with osx
+keymap("v", "<A-k>", ":m .-2<cr>==", opts) -- TODO these move command not working with osx
 keymap("v", "∆", ":m .+1<CR>==", opts)
 -- retains yanked line in register when pasting over selected text
 keymap("v", "p", '"_dP', opts)
+
 
 -- Visual Block --
 -- Move text up and down
