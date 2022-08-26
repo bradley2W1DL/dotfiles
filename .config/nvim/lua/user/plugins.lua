@@ -50,10 +50,11 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- have packer manage itself
   use "nvim-lua/popup.nvim" -- implementation of the Popup API from vim in neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
-  --  use {
+  --  use { -- found telescope to be really slow 🤷
   --    'nvim-telescope/telescope.nvim', tag = '0.1.0',
   --    requires = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep' }
   --  }
+  use { "junegunn/fzf", run = ":call fzf#install()" }
   use "junegunn/fzf.vim"
 
   -- Colorschemes --
@@ -76,6 +77,9 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
+
+  -- Treesitter (syntax highlighting)
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins
