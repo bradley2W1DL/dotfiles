@@ -21,6 +21,7 @@ files=(`echo $tracked_files`)
 # # # #
 echo "Creating backup directory for existing dotfiles at $backup_dir"
 mkdir -p $backup_dir
+# -- TODO, handle case where backup dir exists and has contents
 echo "👍"
 # # # #
 
@@ -37,7 +38,7 @@ for file in "${files[@]}"; do
     mv -f $target_dir/$file $backup_dir/
   fi
 
-  echo "create symlink to git-tracked file 🔥"
+  echo "⚡️ create symlink to git file: $file ⚡️"
   ln -sf $(pwd)/$file $target_dir/$file
 done
 
