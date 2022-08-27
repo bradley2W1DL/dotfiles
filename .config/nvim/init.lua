@@ -6,3 +6,4 @@ require "user.completion"
 require "user.lsp" -- .lsp is a dir, so lua will search for an init.lua file in that dir
 require "user.treesitter"
 require "user.nvim_tree"
+-- require "user.telescope"
