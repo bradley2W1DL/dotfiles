@@ -1,3 +1,5 @@
+-- NOTE I think all this is not necessary with the mason / mason-lspconfig stuff...
+-- not including it in lsp init script for now.
 local M = {}
 
 M.lsp_flags = {

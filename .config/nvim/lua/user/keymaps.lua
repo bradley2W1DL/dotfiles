@@ -28,7 +28,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- shortcut to open up Netrw (file explorer) with a set 30 col size
-keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- <cr> is carriage-return (enter key)
+-- keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- <cr> is carriage-return (enter key)
+-- open up Nvim-Tree (file explorer)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>.e", ":NvimTreeFindFile<CR>", opts)
 
 -- quickly clear search highlighting
 keymap("n", "<leader>n", ":noh<cr>", opts)
@@ -36,8 +39,11 @@ keymap("n", "<leader>n", ":noh<cr>", opts)
 -- Resize windows with arrows
 keymap("n", "<C-Up>", ":resize +2<cr>", opts)
 keymap("n", "<C-Down>", ":resize -2<cr>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+-- control left / right doesn't work with OSX window change behavior
+-- keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
+-- keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+keymap("n", "<C-_>", ":vertical resize -2<cr>", opts)
+keymap("n", "<C-=>", ":vertical resize +2<cr>", opts)
 
 -- Navigate buffers
 --  move forward and backwards between buffers with "shift-l" and "shift-h"

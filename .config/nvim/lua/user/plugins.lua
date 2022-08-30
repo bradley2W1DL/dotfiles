@@ -50,10 +50,11 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- have packer manage itself
   use "nvim-lua/popup.nvim" -- implementation of the Popup API from vim in neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
-  --  use { -- found telescope to be really slow 🤷
+  --  use { -- found telescope to be really slow 🤷 -- should try to optimize somewhat
   --    'nvim-telescope/telescope.nvim', tag = '0.1.0',
   --    requires = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep' }
   --  }
+  --  fuzzy finder --
   use { "junegunn/fzf", run = ":call fzf#install()" }
   use "junegunn/fzf.vim"
 
@@ -61,7 +62,7 @@ return packer.startup(function(use)
   use "Rigellute/shades-of-purple.vim"
   use 'sainnhe/everforest'
 
-  -- cmp plugins --
+  -- autocompletion plugins --
   use "hrsh7th/nvim-cmp" -- top-level completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -78,9 +79,21 @@ return packer.startup(function(use)
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
 
+  -- prettier (should be able to make this work with Mason)
+  -- use {
+  --   "sbdchd/neoformat",
+  --   setup = function () 
+  --     -- use project local version of prettier
+  --     vim.g.neoformat_try_node_exe = 1
+  --   end
+  -- } 
+
   -- Treesitter (syntax highlighting)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
+  -- File tree viewer
+  use "kyazdani42/nvim-tree.lua" 
+  
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins
   if PACKER_BOOTSTRAP then
