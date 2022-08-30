@@ -3,22 +3,28 @@ if not status_ok then
   return
 end
 
-require("user.lsp.mason-lspconfig")
+local mason_lspconfig = require("user.lsp.mason-lspconfig")
 
 local handlers = require("user.lsp.handlers")
--- handlers.setup()
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
---   (defined in handlers.lua on_attach function)
---   todo, preferablly this would be configured with mason-lspconfig
-local servers = { "solargraph" }
+handlers.setup_diagnostics()
 
--- mason-lspconfig.get_installed_servers()
+local servers = mason_lspconfig.get_installed_servers()
+-- Loop over all mason-lspconfig installed servers
+for _, server in ipairs(servers) do
+  -- print(server) -- output each server name
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = handlers.on_attach,
-    flags = handlers.lsp_flags,
+  local server_settings = {
+    on_attach = handlers.on_attach
   }
+
+  -- Add server specific setup attributes like so:
+  if 'sumneko_lua' then
+    server_settings.settings = {
+      Lua = { diagnostics = { globals = { "vim" } } }
+    }
+  end
+
+  lspconfig[server].setup(server_settings)
 end
+

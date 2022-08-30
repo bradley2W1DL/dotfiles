@@ -15,3 +15,5 @@ mason_lspconfig.setup {
   ensure_installed = { "sumneko_lua", "solargraph", "eslint", "tsserver" }
 }
 
+return mason_lspconfig
+

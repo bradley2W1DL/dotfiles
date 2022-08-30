@@ -3,7 +3,8 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local _keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Remap space as leader key
 --  the default vim <leader> key is backslash "\"
@@ -21,27 +22,35 @@ vim.g.maplocalleader = " "
 --  command_mode = "c"
 
 -- Normal --
+------------ 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- shortcut to open up Netrw (file explorer) with a set 30 col size
--- keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- <cr> is carriage-return (enter key)
 -- open up Nvim-Tree (file explorer)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>.e", ":NvimTreeFindFile<CR>", opts)
+-- keymap("n", "<leader>.e", ":NvimTreeFindFile<CR>", opts)
+
+keymap('n', '<space>d', vim.diagnostic.open_float, opts)
+keymap('n', '[d', vim.diagnostic.goto_prev, opts)
+keymap('n', ']d', vim.diagnostic.goto_next, opts)
+keymap('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- quickly clear search highlighting
 keymap("n", "<leader>n", ":noh<cr>", opts)
 
--- Resize windows with arrows
-keymap("n", "<C-Up>", ":resize +2<cr>", opts)
-keymap("n", "<C-Down>", ":resize -2<cr>", opts)
--- control left / right doesn't work with OSX window change behavior
--- keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
--- keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+-- prevent x,X,<Delete> from yanking to clipboard register
+keymap("n", "x", '"_x', opts)
+keymap("n", "X", '"_X', opts)
+keymap("n", "<Del>", '"_x', opts)
+
+-- Resize windows with +/- keys
+-- keymap("n", "<C-Up>", ":resize +2<cr>", opts)
+-- keymap("n", "<C-Down>", ":resize -2<cr>", opts)
+keymap("n", "_", ":resize -2<cr>", opts)
+keymap("n", "+", ":resize +2<cr>", opts)
 keymap("n", "<C-_>", ":vertical resize -2<cr>", opts)
 keymap("n", "<C-=>", ":vertical resize +2<cr>", opts)
 
@@ -63,10 +72,12 @@ keymap("n", "<S-h>", ":bprevious<cr>", opts)
 keymap("n", "<leader>ff", ":Files<CR>", opts)
 
 -- Insert --
+------------ 
 -- enable "fast-exit" of insert mode with "jk" combo 
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
+------------
 -- stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -79,6 +90,7 @@ keymap("v", "p", '"_dP', opts)
 
 
 -- Visual Block --
+------------------
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
@@ -86,6 +98,7 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts) -- todo, "alt" key remapping n
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts) -- todo, "alt" key remapping not really working
 
 -- Terminal --
+--------------
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
