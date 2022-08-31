@@ -44,6 +44,10 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+-- options for git-blame plugin
+vim.g.gitblame_enabled = 0
+vim.g.gitblame_message_template = " <author> • <date> • <sha>"
+
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

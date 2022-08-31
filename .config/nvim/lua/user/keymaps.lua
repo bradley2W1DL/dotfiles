@@ -1,9 +1,8 @@
 local opts = { noremap = true, silent = true }
-
+local cmd_opts = { cnoremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local _keymap = vim.api.nvim_set_keymap
 local keymap = vim.keymap.set
 
 -- Remap space as leader key
@@ -70,6 +69,11 @@ keymap("n", "<S-h>", ":bprevious<cr>", opts)
 
 -- FZF (fuzzy finder keymaps
 keymap("n", "<leader>ff", ":Files<CR>", opts)
+
+-- Git Blame keymaps
+keymap("n", "<leader>gb", ":GitBlameToggle<CR>", opts)
+-- TODO this is working currently (trouble mapping a "cmd" mode thing)
+-- keymap("c", "gitbrowse", ":GitBlameOpenCommitURL<CR>", cmd_opts)
 
 -- Insert --
 ------------ 

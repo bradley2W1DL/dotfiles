@@ -92,8 +92,11 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- File tree viewer
-  use "kyazdani42/nvim-tree.lua" 
-  
+  use "kyazdani42/nvim-tree.lua"
+
+  -- Git Blame
+  use "f-person/git-blame.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins
   if PACKER_BOOTSTRAP then
