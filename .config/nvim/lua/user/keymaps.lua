@@ -46,8 +46,6 @@ keymap("n", "X", '"_X', opts)
 keymap("n", "<Del>", '"_x', opts)
 
 -- Resize windows with +/- keys
--- keymap("n", "<C-Up>", ":resize +2<cr>", opts)
--- keymap("n", "<C-Down>", ":resize -2<cr>", opts)
 keymap("n", "_", ":resize -2<cr>", opts)
 keymap("n", "+", ":resize +2<cr>", opts)
 keymap("n", "<C-_>", ":vertical resize -2<cr>", opts)
@@ -55,19 +53,18 @@ keymap("n", "<C-=>", ":vertical resize +2<cr>", opts)
 
 -- Navigate buffers
 --  move forward and backwards between buffers with "shift-l" and "shift-h"
---  This might be a little hard to grok for me initially, rather than toggling with <C-^>
 keymap("n", "<S-l>", ":bnext<cr>", opts)
 keymap("n", "<S-h>", ":bprevious<cr>", opts)
 
 -- Telescope keymaps (why you so sloooow??)
 -- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
--- keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
--- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
--- keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
--- keymap("n", "<leader>fs", ":Telescope spell_suggest<CR>", opts)
--- keymap("n", "<leader>fkm", ":Telescope keymaps<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fs", ":Telescope spell_suggest<CR>", opts)
+keymap("n", "<leader>fkm", ":Telescope keymaps<CR>", opts)
 
--- FZF (fuzzy finder keymaps
+-- FZF for finding files (much faster than Telescope)
 keymap("n", "<leader>ff", ":Files<CR>", opts)
 
 -- Git Blame keymaps

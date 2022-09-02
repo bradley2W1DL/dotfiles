@@ -6,8 +6,6 @@ _todo_:
 
 #### Programs
 - iTerm
-- _rubymine_
-- nvim
 - typora
 - spotify
 - chrome
@@ -15,7 +13,8 @@ _todo_:
 
 #### CLI based programs
 - homebrew
-- vim
+- neovim
+  - ripgrep (dependency for live_grep to work)
 - git
 - rbenv
   - ruby
