@@ -37,16 +37,16 @@ for _, server in ipairs(servers) do
   end
 
   -- TODO, can't seem to get diagnostics to work for ruby files...
-  --  if "diagnosticls" then
-  --    -- local rubocopConfig = require("diagnosticls-configs.linters.rubocop")
-  --    -- can variables be overwritten in Lua?
-  --    server_settings = {
-  --      init_options = {
-  --        linters = { rubocop = require("user.lsp.settings.rubocop") },
-  --        filetypes = { ruby = "rubocop" }
-  --      }
-  --    }
-  --  end
+  if server == "diagnosticls" then
+    -- local rubocopConfig = require("diagnosticls-configs.linters.rubocop")
+    -- can variables be overwritten in Lua?
+    server_settings = {
+      init_options = {
+        linters = { rubocop = require("user.lsp.settings.rubocop") },
+        filetypes = { ruby = "rubocop" }
+      }
+    }
+  end
 
   lspconfig[server].setup(server_settings)
 end

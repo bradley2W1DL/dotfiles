@@ -78,10 +78,6 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
-  use {
-    'creativenull/diagnosticls-configs-nvim',
-    requires = { 'neovim/nvim-lspconfig' }
-  }
 
   -- Treesitter (syntax highlighting)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
