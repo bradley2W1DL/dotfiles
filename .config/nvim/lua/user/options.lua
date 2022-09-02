@@ -55,9 +55,15 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work (not sure what it's trying to do)
 
 vim.cmd [[
-  augroup set_column_markers
+  augroup set_cursorcolumn_yml
     autocmd!
     autocmd Filetype yaml,yml set cursorcolumn
   augroup end
 ]]
 
+vim.cmd [[
+  augroup unset_cursor_column
+    autocmd!
+    autocmd BufLeave *.yml,*.yaml set nocursorcolumn
+  augroup end
+]]
