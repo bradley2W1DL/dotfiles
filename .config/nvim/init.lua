@@ -29,3 +29,4 @@ require "user.lsp" -- .lsp is a dir, so lua will search for an init.lua file in 
 require "user.treesitter"
 require "user.nvim_tree"
 require "user.telescope"
+require "user.autopairs"
