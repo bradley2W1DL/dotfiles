@@ -62,6 +62,19 @@ return packer.startup(function(use)
   use "Rigellute/shades-of-purple.vim"
   use 'sainnhe/everforest'
 
+  -- Startup Dashboard --
+  use{
+    "goolord/alpha-nvim",
+    config = function ()
+      require('user.alpha') -- path to local dashboard config 
+    end,
+    cmd = {
+      "Alpha",
+      "AlphaRedraw"
+    },
+    event="BufWinEnter"
+  }
+
   -- autocompletion plugins --
   use "hrsh7th/nvim-cmp" -- top-level completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -92,6 +105,14 @@ return packer.startup(function(use)
 
   -- Yaml syntax folding
   use "pedrohdz/vim-yaml-folds"
+
+  -- ToggleTerm (persistent terminals) --
+  use {
+    "akinsho/toggleterm.nvim",
+    config = "require('user.toggleterm')",
+    event="BufWinEnter"
+  }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins
