@@ -52,7 +52,13 @@ vim.g.gitblame_message_template = " <author> • <date> • <sha>"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work (not sure what it's trying to do)
+-- prevent comment char on newline
+vim.cmd [[
+  augroup no_newline_comment
+    autocmd!
+    autocmd BufEnter * set formatoptions-=cro
+  augroup end
+]]
 
 vim.cmd [[
   augroup set_cursorcolumn_yml

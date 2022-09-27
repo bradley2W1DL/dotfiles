@@ -30,16 +30,14 @@ for _, server in ipairs(servers) do
     server_settings.settings = {
       solargraph = {
         diagnostics = true,
-        formatting = true,
-        useBundler = false,
+        formatting = false,
+        autoFormat = false,
+        useBundler = true,
       }
     }
   end
 
-  -- TODO, can't seem to get diagnostics to work for ruby files...
   if server == "diagnosticls" then
-    -- local rubocopConfig = require("diagnosticls-configs.linters.rubocop")
-    -- can variables be overwritten in Lua?
     server_settings = {
       init_options = {
         linters = { rubocop = require("user.lsp.settings.rubocop") },

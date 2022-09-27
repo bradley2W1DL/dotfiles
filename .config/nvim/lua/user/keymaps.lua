@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = true }
-local cmd_opts = { cnoremap = true, silent = true }
+-- local cmd_opts = { cnoremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
@@ -70,7 +70,21 @@ keymap("n", "<leader>ff", ":Files<CR>", opts)
 -- Git Blame keymaps
 keymap("n", "<leader>gb", ":GitBlameToggle<CR>", opts)
 -- TODO this is working currently (trouble mapping a "cmd" mode thing)
--- keymap("c", "gitbrowse", ":GitBlameOpenCommitURL<CR>", cmd_opts)
+-- keymap("c", "gitbrowse", [[<Cmd>GitBlameOpenCommitURL<CR>]], cmd_opts)
+
+-- ToggleTerm keymaps --
+keymap("n", "<leader>tt", ":ToggleTerm<CR>", opts)
+--  *these apply when in the terminal window
+function _G.set_terminal_keymaps()
+  local term_opt = { buffer = 0 }
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], term_opt)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], term_opt)
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opt)
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opt)
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opt)
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], term_opt)
+end
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- Insert --
 ------------ 
