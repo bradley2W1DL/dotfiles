@@ -14,7 +14,6 @@ treesitter_config.setup {
   autopairs = {
     enabled = true,
   },
-
   highlight = {
     enable = true,
     disable = { "" },
@@ -23,6 +22,6 @@ treesitter_config.setup {
   indent = {
     enable = true,
     -- add any parsers where indentation doesn't seem to work
-    disable = { "" },
+    disable = { "ruby" },
   },
 }

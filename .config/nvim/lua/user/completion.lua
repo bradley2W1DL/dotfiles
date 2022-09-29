@@ -17,9 +17,6 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
--- TODO placeholder for NerdFont --
--- to get these fonts to render correctly need to install some form of nerd font
---   that is patched with icons.
 local kind_icons = {
   Text = "",
   Method = "m",

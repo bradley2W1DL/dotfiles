@@ -12,10 +12,10 @@ local logo2 = {
 }
 
 -- local logo = {
---   [[       ___  __               ]],
---   [[ |\ | |__  /  \ \  / |  |\/| ]],
---   [[ | \| |___ \__/  \/  |  |  | ]],
---   [[                             ]],
+--   [[      ___  __              ]],
+--   [[|\ | |__  /  \ \  / |  |\/|]],
+--   [[| \| |___ \__/  \/  |  |  |]],
+--   [[                           ]],
 -- }
 dashboard.section.header.val = logo2
 dashboard.section.header.opts.hl = "AlphaHeader"
@@ -29,10 +29,10 @@ end
 
 dashboard.section.buttons.val = {
   button("Ctrl + E", "  File Explorer", ":NvimTreeToggle<cr>"),
-  button("Leader + ff", "  Find File", ":Files<cr>"),
-  button("Leader + fg", "  Find Word", ":Telescope live_grep<cr>"),
-  button("Leader + fkm", "  Find Keymaps", "Telescope keymaps<cr>"),
-  button("Leader + tt", "  Open Terminal", ":ToggleTerm<cr>"),
+  button("<leader>ff", "  Find File", ":Files<cr>"),
+  button("<leader>fg", "  Find Word", ":Telescope live_grep<cr>"),
+  button("<leader>fkm", "  Find Keymaps", "Telescope keymaps<cr>"),
+  button("<leader>tt", "  Open Terminal", ":ToggleTerm<cr>"),
   button("q", "  Quit", ":qa<cr>")
 }
 

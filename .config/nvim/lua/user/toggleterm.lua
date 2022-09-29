@@ -9,7 +9,10 @@ toggleterm.setup {
   close_on_exit = true, -- close terminal window when process exits
   hide_numbers = true,
   direction = 'float',
+  shading_factor = 2,
   float_opts = {
-    border = 'curved'
+    border = 'curved',
+    winblend = 0, -- blur background through to term window
+    width = 200,
   }
 }

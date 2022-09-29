@@ -1,5 +1,3 @@
--- NOTE I think all this is not necessary with the mason / mason-lspconfig stuff...
--- not including it in lsp init script for now.
 local M = {}
 
 -- M.lsp_flags = {
@@ -81,7 +79,7 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
   ----
-  -- set these up as general keybindings
+  -- set these up as general keybindings in keybindings.lua
   -- vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, opts)
   -- vim.keymap.set("n", "[d", "<cmd>vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
   -- vim.keymap.set("n", "]d", "<cmd>vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
