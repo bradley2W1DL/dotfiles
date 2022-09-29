@@ -14,4 +14,11 @@ nvim_tree.setup({
   view = {
     adaptive_size = true, -- resize tree window to fix filename
   },
+  renderer = {
+    icons = {
+      show = {
+        git = false,
+      }
+    }
+  }
 })
