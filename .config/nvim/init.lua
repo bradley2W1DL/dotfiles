@@ -30,3 +30,5 @@ require "user.treesitter"
 require "user.nvim_tree"
 require "user.telescope"
 require "user.autopairs"
+require "user.bufferline" -- could replace with stabline (part of staline)
+require "user.staline"

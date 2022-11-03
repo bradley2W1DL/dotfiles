@@ -18,6 +18,7 @@ for _, server in ipairs(servers) do
   local server_settings = {
     on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
+    flags = handlers.lsp_flags,
   }
 
   if server == "sumneko_lua" then

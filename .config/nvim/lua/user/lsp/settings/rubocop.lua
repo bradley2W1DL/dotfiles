@@ -1,7 +1,7 @@
 return {
   sourceName = 'rubocop',
   command = 'bundle',
-  debounce = 100,
+  debounce = 500,
   args = {
     'exec',
     'rubocop',

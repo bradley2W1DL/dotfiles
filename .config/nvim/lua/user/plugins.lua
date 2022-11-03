@@ -62,16 +62,13 @@ return packer.startup(function(use)
   use "Rigellute/shades-of-purple.vim"
   use 'sainnhe/everforest'
 
-  -- Startup Dashboard --
+  -- Startup Dashboard -- Alpha --
   use{
     "goolord/alpha-nvim",
     config = function ()
       require('user.alpha') -- path to local dashboard config 
     end,
-    cmd = {
-      "Alpha",
-      "AlphaRedraw"
-    },
+    cmd = { "Alpha", "AlphaRedraw" },
     event="BufWinEnter"
   }
 
@@ -97,11 +94,15 @@ return packer.startup(function(use)
   -- Treesitter (syntax highlighting)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
+  -- Bufferline / Statusline --
+  use { "akinsho/bufferline.nvim", tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use 'tamton-aquib/staline.nvim' -- statusline
+
   -- File tree viewer
   use {
     "kyazdani42/nvim-tree.lua",
     requires = {
-      "kyazdani42/nvim-web-devicons", -- optional, for file icons
+      "kyazdani42/nvim-web-devicons", -- Fetch file type icons
     }
   }
 

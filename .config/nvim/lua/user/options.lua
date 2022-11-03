@@ -35,7 +35,8 @@ local options = {
   sidescrolloff = 8,                       -- ditto
   colorcolumn = "120",                     -- show a column line at 120 chars (max line length)
   -- guifont = "monospace:h17",               -- font used in graphical neovim applications
-  foldlevelstart = 99                      -- when file is opened don't have any folding (e.g. yml files)
+  foldlevelstart = 99,                     -- when file is opened don't have any folding (e.g. yml files)
+  laststatus = 2,                          -- statusline
 }
 
 vim.opt.shortmess:append "c"

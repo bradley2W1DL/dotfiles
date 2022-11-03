@@ -1,9 +1,9 @@
 local M = {}
 
--- M.lsp_flags = {
---   -- this is the default for Neovim 0.7+
---   debounce_text_changes = 150,
--- }
+M.lsp_flags = {
+  -- this is the default for Neovim 0.7+
+  debounce_text_changes = 350,
+}
 
 -- vim diagnostic configs
 M.setup_diagnostics = function()

@@ -28,7 +28,7 @@ local function button(sc, txt, keybind, keybind_opts)
 end
 
 dashboard.section.buttons.val = {
-  button("Ctrl + E", "  File Explorer", ":NvimTreeToggle<cr>"),
+  button("<leader>e", "  File Explorer", ":NvimTreeToggle<cr>"),
   button("<leader>ff", "  Find File", ":Files<cr>"),
   button("<leader>fg", "  Find Word", ":Telescope live_grep<cr>"),
   button("<leader>fkm", "  Find Keymaps", "Telescope keymaps<cr>"),
