@@ -17,6 +17,9 @@ source ~/.asdf/asdf.fish
 ## ALIASES ##
 alias vim=nvim
 
+## missing breeze commands
+abbr -a gcb 'git checkout -b'
+
 function heroku-console
   heroku run -a $argv[1] -e CONSOLE_USER=$CONSOLE_USER "bundle exec rails console -- --nomultiline"
 end
@@ -24,8 +27,6 @@ end
 function set-upstream
   git branch --set-upstream-to=origin/(git branch --show-current) (git branch --show-current)
 end
-# alias heroku-console='f() { heroku run -a $1 -e CONSOLE_USER=$CONSOLE_USER "bundle exec rails console -- --nomultiline" };f'
-# alias set-upstream="git branch --set-upstream-to=origin/(git branch --show-current) (git branch --show-current)"
 
 set -x CONSOLE_USER bradley@himaxwell.com
 set -x EDITOR nvim

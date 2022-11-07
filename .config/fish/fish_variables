@@ -12,6 +12,7 @@ SETUVAR _fish_abbr_gashp:git\x20stash\x20pop
 SETUVAR _fish_abbr_gashu:git\x20stash\x20\x2d\x2dinclude\x2duntracked
 SETUVAR _fish_abbr_gau:git\x20add\x20\x2du
 SETUVAR _fish_abbr_gc:git\x20commit
+SETUVAR _fish_abbr_gcb:git\x20checkout\x20\x2db
 SETUVAR _fish_abbr_gce:git\x20clean
 SETUVAR _fish_abbr_gcef:git\x20clean\x20\x2dfd
 SETUVAR _fish_abbr_gcl:git\x20clone
