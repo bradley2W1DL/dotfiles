@@ -54,6 +54,8 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep' }
   }
+  use 'famiu/bufdelete.nvim' -- extended buffer delete functionality
+
   --  fuzzy finder --
   use { "junegunn/fzf", run = ":call fzf#install()" }
   use "junegunn/fzf.vim"
