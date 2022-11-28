@@ -18,11 +18,22 @@ nvim_tree.setup({
   view = {
     adaptive_size = true, -- resize tree window to fix filename
   },
+  git = {
+    enable = true,
+    ignore = false,
+  },
   renderer = {
     icons = {
       show = {
         git = false,
-      }
+      },
+      glyphs = {
+        git = {
+          staged = "",
+          unstaged = "",
+          deleted = "",
+        }
+      },
     }
   }
 })

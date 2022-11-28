@@ -55,6 +55,7 @@ function __gco
     end
 end
 
+# todo this doesn't like branch names with hyphens or slashes -- can it tho?
 function gco
     # TODO: space like, `gco 1 2 3`
     set length (count $argv)

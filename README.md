@@ -16,29 +16,25 @@ _todo_:
 - neovim
   - ripgrep (dependency for live_grep to work)
 - git
-- rbenv
+- asdf (package manager)
   - ruby
-- nvm
   - node
-- python (?)
-- oh-my-zsh
+  - python (?)
+- ~oh-my-zsh~
+- fish (shell alternative)
+  - breeze (git aliases)
+  - oh-my-fish
 
 `cp ./dotfiles/* ~/`
 
 
 #### WIP install scripts
 
-**rbenv**
-`brew install rbenv`
+**fish**
 
-**nvm**
-`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash`
+**asdf**
 
-**oh my zsh**
-`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-
-_note on this install, the .oh-my-zsh dotfiles is itself a git repository so didn't immediately want to be checked into the
-dotfiles git repo.  Need to look into adding it as a submodule, and make sure that doesn't break the auto-update functionality_
+**nvim**
 
 **scm_breeze**
 ```
