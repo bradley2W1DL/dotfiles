@@ -83,5 +83,15 @@ telescope.setup {
     --   ...
     -- }
   },
-  extensions = {},
+  extensions = {
+    fzf = {
+      -- these are all the default settings...so not strictly necessary
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+    },
+  },
 }
+
+telescope.load_extension("fzf")

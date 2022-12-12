@@ -9,3 +9,4 @@
 .DS_Store
 
 config/solargraph_definitions.rb
+.tool-versions

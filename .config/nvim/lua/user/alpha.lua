@@ -29,7 +29,7 @@ end
 
 dashboard.section.buttons.val = {
   button("<leader>e", "  File Explorer", ":NvimTreeToggle<cr>"),
-  button("<leader>ff", "  Find File", ":Files<cr>"),
+  button("<leader>ff", "  Find Files", ":Telescope find_files<cr>"),
   button("<leader>fg", "  Find Word", ":Telescope live_grep<cr>"),
   button("<leader>fkm", "  Find Keymaps", "Telescope keymaps<cr>"),
   button("<leader>tt", "  Open Terminal", ":ToggleTerm<cr>"),
