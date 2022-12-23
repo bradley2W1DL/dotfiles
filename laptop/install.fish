@@ -16,7 +16,6 @@
 
 if ! type -q brew
   echo "homebrew needs to be installed...🍺"
-  set NONINTERACTIVE 1
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 end
 
@@ -36,14 +35,16 @@ if ! type -q asdf
   end
   # manually setup completions with symlinks
   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+end
 
+if type -q asdf
   # install ruby, node, and yarn 
   asdf install ruby
   asdf install nodejs
   asdf install yarn
 end
 
-# fish plugins
+# Fish plugins
 if ! type -q omf
   echo 'installing oh-my-fish...'
   curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish

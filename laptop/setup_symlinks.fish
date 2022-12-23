@@ -2,6 +2,7 @@
 
 set TARGET_DIR $HOME
 set BACKUP_DIR $TARGET_DIR/.dotfiles_backup
+
 # add any top-level files here:
 set BASIC_DOTFILES .gitconfig .gitignore
 
@@ -10,8 +11,8 @@ if test ! -d $TARGET_DIR/$BACKUP_DIR
 end
 
 for file in $BASIC_DOTFILES
-  # backup for safesies
   if test -e $TARGET_DIR/$file
+    echo "$file exists, backing up now..."
     command cp $TARGET_DIR/$file $BACKUP_DIR/$file
   end
 

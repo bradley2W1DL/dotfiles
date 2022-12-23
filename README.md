@@ -3,8 +3,9 @@ ___
 
 #### Setup Script
 ```bash
-$ ./setup.sh
+$ ./laptop/setup.sh
 ```
+
 This script will
 - symlink dotfiles from this git repo in to $HOME dir
 - install the CLI programs listed below
