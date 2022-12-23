@@ -5,6 +5,8 @@
 .config/nvim/plugin/
 .config/yarn/link/
 .config/configstore/update-notifier-npm.json
+.config/gh/hosts.yml
+.config/gh/state.yml
 
 .DS_Store
 

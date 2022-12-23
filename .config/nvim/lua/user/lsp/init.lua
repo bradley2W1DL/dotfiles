@@ -39,10 +39,22 @@ for _, server in ipairs(servers) do
   end
 
   if server == "diagnosticls" then
-    server_settings = {
-      init_options = {
-        linters = { rubocop = require("user.lsp.settings.rubocop") },
-        filetypes = { ruby = "rubocop" }
+    -- syntax here maybe should be server_settings.init_options as to not overwrite default server_settings 🤷
+    server_settings.init_options = {
+      linters = { rubocop = require("user.lsp.settings.rubocop") },
+      filetypes = { ruby = "rubocop" }
+    }
+  end
+
+  if server == 'emmet_ls' then
+    server_settings.capabilities.textDocument.completion.completionItem.snippetSupport = true
+    server_settings.filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'scss', 'sass', 'less' }
+    server_settings.init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true
+        }
       }
     }
   end

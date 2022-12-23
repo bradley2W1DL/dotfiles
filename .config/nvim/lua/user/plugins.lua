@@ -85,6 +85,9 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip" -- snippet engine
   use "rafamadriz/friendly-snippets" -- whole buncha snippets
 
+  -- Emmet - shorthand html --
+  use "mattn/emmet-vim"
+
   -- LSP (language server protocol) -- ? not sure about "protocol"
   use "neovim/nvim-lspconfig"
   use "williamboman/mason.nvim"

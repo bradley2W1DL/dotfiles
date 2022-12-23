@@ -12,7 +12,7 @@ end
 mason.setup()
 
 mason_lspconfig.setup {
-  ensure_installed = { "sumneko_lua", "solargraph", "eslint", "tsserver" }
+  ensure_installed = { "sumneko_lua", "solargraph", "eslint", "tsserver", "emmet_ls" }
 }
 
 return mason_lspconfig
