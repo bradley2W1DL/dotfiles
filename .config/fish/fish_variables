@@ -43,6 +43,7 @@ SETUVAR _fish_abbr_gt:git\x20tag
 SETUVAR _fish_abbr_gtop:git\x20rev\x2dparse\x20\x2d\x2dshow\x2dtoplevel
 SETUVAR _fish_abbr_gurl:git\x20config\x20\x2d\x2dget\x20remote\x2eorigin\x2eurl
 SETUVAR _fish_abbr_runsv:python\x20\x2dm\x20SimpleHTTPServer
+SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:normal
@@ -108,6 +109,7 @@ SETUVAR pure_show_jobs:false
 SETUVAR pure_show_prefix_root_prompt:false
 SETUVAR pure_show_subsecond_command_duration:false
 SETUVAR pure_show_system_time:false
+SETUVAR pure_symbol_container_prefix:
 SETUVAR pure_symbol_git_dirty:\x2a
 SETUVAR pure_symbol_git_stash:\u2261
 SETUVAR pure_symbol_git_unpulled_commits:\u21e3
@@ -115,5 +117,6 @@ SETUVAR pure_symbol_git_unpushed_commits:\u21e1
 SETUVAR pure_symbol_prefix_root_prompt:\x23
 SETUVAR pure_symbol_prompt:\u276f
 SETUVAR pure_symbol_reverse_prompt:\u276e
+SETUVAR pure_symbol_ssh_prefix:
 SETUVAR pure_symbol_title_bar_separator:\x2d
 SETUVAR pure_threshold_command_duration:5
