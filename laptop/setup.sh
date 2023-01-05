@@ -17,7 +17,7 @@ then
   echo 'homebrew already installed 🍺'
 else
   echo 'homebrew needs to be installed...'
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   
   # Add brew to zsh path
   echo '# set PATH, MANPATH, etc. for Homebrew.' >> ~/.zshrc
@@ -52,18 +52,12 @@ echo $FISH_BIN | sudo tee -a /etc/shells
 sudo chsh -s $FISH_BIN $CURRENT_USER
 
 # open fish shell for rest of this setup script
-# TODO YOU ARE HERE...this is picking up some omf config prematurely...may need to install fish plugins before switching to fish
-# if ! command -v asdf &> /dev/null; then
-#   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.0
-#   if [ ! -d $TARGET_DIR/.config/fish/completions ]
-#     mkdir -p ~/.config/fish/completions
-#   end
-#   # manually setup completions with symlinks
-#   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-# fi
+fish <<END_FISH
+  # ensure hombrew is in the $PATH
+  fish_add_path /opt/homebrew/bin
 
-# Step 3: Setup backup directory and symlink files and config dirs
-fish './setup_symlinks.fish'
+  $(pwd)/laptop/setup_symlinks.fish
 
-# Step 4+: Install things
-fish './install.fish'
+  $(pwd)/laptop/install.fish
+END_FISH
+
