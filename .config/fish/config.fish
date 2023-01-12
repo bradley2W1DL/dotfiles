@@ -14,6 +14,9 @@ set pure_color_prompt_on_success white
 ## asdf version manager (replaces rbenv, nvm, etc.)
 source ~/.asdf/asdf.fish
 
+## add homebrew to path
+fish_add_path /opt/homebrew/bin
+
 ## ALIASES ##
 alias vim=nvim
 
