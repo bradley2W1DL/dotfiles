@@ -46,12 +46,20 @@ then
 fi
 
 export FISH_BIN=$(which fish)
-# Add the shell to /etc/shells with:
-echo $FISH_BIN | sudo tee -a /etc/shells
+# Add fish to list of acceptable shells
+# first check that it hasn't already been added:
+if grep -Fxq $FISH_BIN /etc/shells
+then
+  echo "🎣 Fish already an acceptable shell"
+else
+  echo "adding Fish to /etc/shells 🎣"
+  echo $FISH_BIN | sudo tee -a /etc/shells
+fi
+
 # make fish the default login shell
 sudo chsh -s $FISH_BIN $CURRENT_USER
 
-# open fish shell for rest of this setup script
+# execute remaining setup scripts in fish
 fish <<END_FISH
   # ensure hombrew is in the $PATH
   fish_add_path /opt/homebrew/bin

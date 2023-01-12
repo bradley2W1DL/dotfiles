@@ -2,7 +2,7 @@
 
 set TARGET_DIR $HOME
 set BACKUP_DIR $TARGET_DIR/.dotfiles_backup
-echo $BACKUP_DIR
+
 # add any top-level files here:
 set BASIC_DOTFILES .gitconfig .gitignore
 
@@ -22,6 +22,7 @@ for file in $BASIC_DOTFILES
   ln -sf (pwd)/$file $TARGET_DIR/$file
 end
 
+# ensure ~/.config dir exists
 if test ! -d $TARGET_DIR/.config
   echo "📁 creating .config dir"
   mkdir $TARGET_DIR/.config
@@ -35,7 +36,7 @@ for filepath in (pwd)/.config/*
   # file exists in ~/.config and is not already a symlink
   if test -d $CONFIG_DIR/$file && test ! -L $CONFIG_DIR/$file
     echo "$file exists, backing up now..."
-    # if this succeeds...delete the dir...prevents the weird nested thing
+    # if copy succeeds delete the dir...prevents nested symlink issue
     cp -R $CONFIG_DIR/$file $BACKUP_DIR/
     if test $status -eq 0
       echo "...and removing existing"
@@ -45,7 +46,7 @@ for filepath in (pwd)/.config/*
   
   if test -L $CONFIG_DIR/$file
     echo "💣 removing existing symlink to $file"
-    # default to relying on dotfile symlinks...
+    # Use dotfile symlinks...
     rm $CONFIG_DIR/$file
   end
 

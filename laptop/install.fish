@@ -8,7 +8,7 @@
 #  -> python (TODO)
 #  -> yarn
 # git
-# fish (should already be installed at this point)
+# fish (already be installed at this point)
 #  -> oh-my-fish (themes)
 #  -> fisher (plugin management)
 #  -> breeze (scm-breeze-ish)
@@ -33,6 +33,7 @@ if ! type -q asdf
     rm -rf ~/.asdf
   end
 
+  # Clone specific asdf version 0.11
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.0
   if ! test -d $TARGET_DIR/.config/fish/completions
     mkdir -p ~/.config/fish/completions
