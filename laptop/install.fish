@@ -1,4 +1,4 @@
-#!/usr/local/bin/fish
+#!/opt/homebrew/bin/fish
 
 ## Scripts to ensure the following programs are installed:
 # nvim
@@ -11,7 +11,7 @@
 # fish (should already be installed at this point)
 #  -> oh-my-fish (themes)
 #  -> fisher (plugin management)
-#  -> breeze (scm-ish)
+#  -> breeze (scm-breeze-ish)
 # xcode-select
 
 if ! type -q brew
@@ -19,16 +19,20 @@ if ! type -q brew
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 end
 
-if ! type -q git
-  echo "installing git..."
-  brew install git
-end
-
 if ! type -q nvim
   brew install neovim
+
+  # intall all configured nvim packages (./config/nvim/usr)
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 end
 
 if ! type -q asdf
+  echo "installing asdf (version manager)"
+  if test -d ~/.asdf
+    # remove existing asdf config files
+    rm -rf ~/.asdf
+  end
+
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.0
   if ! test -d $TARGET_DIR/.config/fish/completions
     mkdir -p ~/.config/fish/completions
@@ -39,8 +43,11 @@ end
 
 if type -q asdf
   # install ruby, node, and yarn 
+  echo "  ...asdf install ruby"
   asdf install ruby
+  echo "  ...asdf install nodejs"
   asdf install nodejs
+  echo "  ...asdf install yarn"
   asdf install yarn
 end
 
@@ -49,7 +56,7 @@ if ! type -q omf
   echo 'installing oh-my-fish...'
   curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
-  # install "pure" theme
+  # install "pure" theme and ensure it's set
   omf install pure
   omf theme pure
 end
