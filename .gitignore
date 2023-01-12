@@ -14,3 +14,5 @@ config/solargraph_definitions.rb
 
 .tool-versions
 !~/.tool-versions
+
+.config/iterm2/AppSupport
