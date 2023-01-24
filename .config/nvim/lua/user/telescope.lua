@@ -57,17 +57,17 @@ telescope.setup {
 
         ["j"] = actions.move_selection_next,
         ["k"] = actions.move_selection_previous,
-        ["H"] = actions.move_to_top,
+        ["J"] = actions.move_to_top,
         ["M"] = actions.move_to_middle,
-        ["L"] = actions.move_to_bottom,
+        ["K"] = actions.move_to_bottom,
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
         ["gg"] = actions.move_to_top,
         ["G"] = actions.move_to_bottom,
 
-        ["<C-u>"] = actions.preview_scrolling_up,
-        ["<C-d>"] = actions.preview_scrolling_down,
+        -- ["<C-u>"] = actions.preview_scrolling_up,
+        ["<C-d>"] = actions.delete_buffer,
 
         ["<PageUp>"] = actions.results_scrolling_up,
         ["<PageDown>"] = actions.results_scrolling_down,
@@ -85,7 +85,7 @@ telescope.setup {
   },
   extensions = {
     fzf = {
-      -- these are all the default settings...so not strictly necessary
+      -- these are all the default settings...so not a strictly necessary config
       fuzzy = true,
       override_generic_sorter = true,
       override_file_sorter = true,

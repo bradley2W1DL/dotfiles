@@ -38,6 +38,13 @@ nvim_tree.setup({
   }
 })
 
+-- Ensure nvim_tree is closed before quiting nvim
+local closeTreeGrp = vim.api.nvim_create_augroup("close_tree_before_quit", { clear = true })
+vim.api.nvim_create_autocmd("QuitPre", {
+  command = "NvimTreeClose",
+  group = closeTreeGrp,
+})
+
 local icons_status_ok, nvim_web_devicons = pcall(require, 'nvim-web-devicons')
 if not icons_status_ok then
   return

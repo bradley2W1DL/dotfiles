@@ -8,7 +8,7 @@ local options = {
   fileencoding = "utf-8",                  -- default file encoding
   hlsearch = true,                         -- highlight all matches on previous search patterns
   -- ignorecase = true,                    -- ignore case in search patterns
-  mouse = "a",                             -- allows mouse to be used in neovim
+  mouse = "a",                             -- allows mouse to be used in neovim in all modes
   pumheight = 10,                          -- pop-up menu height
   showmode = true,                         -- toggles this display of mode, e.g. -- INSERT --
   showtabline = 2,                         -- always show tabs (I might not want this)
@@ -34,7 +34,6 @@ local options = {
   scrolloff = 8,                           -- Don't know what this does
   sidescrolloff = 8,                       -- ditto
   colorcolumn = "120",                     -- show a column line at 120 chars (max line length)
-  -- guifont = "monospace:h17",               -- font used in graphical neovim applications
   foldlevelstart = 99,                     -- when file is opened don't have any folding (e.g. yml files)
   laststatus = 2,                          -- statusline
 }
@@ -53,24 +52,34 @@ vim.g.gitblame_message_template = " <author> • <date> • <sha>"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
--- prevent comment char on newline
-vim.cmd [[
-  augroup no_newline_comment
-    autocmd!
-    autocmd BufEnter * set formatoptions-=cro
-  augroup end
-]]
 
-vim.cmd [[
-  augroup set_cursorcolumn_yml
-    autocmd!
-    autocmd Filetype yaml,yml set cursorcolumn
-  augroup end
-]]
+-- see :h api-autocmd for details
+local noCommentGrp = vim.api.nvim_create_augroup("no_newline_comment", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+  command = "set formatoptions-=cro",
+  group = noCommentGrp,
+})
 
-vim.cmd [[
-  augroup unset_cursor_column
-    autocmd!
-    autocmd BufLeave *.yml,*.yaml set nocursorcolumn
-  augroup end
-]]
+-- When entering YAML files set cursorcolumn opt and unset when leaving
+local setYmlCursorCol = vim.api.nvim_create_augroup("yml_cursorcolumn", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.yml", "*.yaml" },
+  command = "set cursorcolumn",
+  group = setYmlCursorCol
+})
+vim.api.nvim_create_autocmd("BufLeave", {
+  pattern = { "*.yml", "*.yaml" },
+  command = "set nocursorcolumn",
+  group = setYmlCursorCol,
+})
+
+-- set js files to JSX filetype for Emmet completions
+-- this might be too blunt, but we'll see
+local setJsFiletype = vim.api.nvim_create_augroup("set_js_to_jsx", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = 'javascript',
+  command = "set filetype=javascriptreact",
+  group = setJsFiletype,
+})
+-- todo, _if_ this ends up being too blunt, may need to play with some way to detect if file
+-- is actually a React component (not sure how to do this aside from looking for a React import in the file itself)
