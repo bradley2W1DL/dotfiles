@@ -31,3 +31,9 @@ This script will
 - spotify
 - chrome
 - brave
+
+##### TODO
+- move iterm config out of symlinks
+  - let iterm itself manage that locally -- may just want to copy in profiles
+- get asdf package installs working
+  - I think just need to create a .tool-versions file (not symlinked)
