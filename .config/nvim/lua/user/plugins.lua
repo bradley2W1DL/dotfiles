@@ -58,8 +58,9 @@ return packer.startup(function(use)
   use 'famiu/bufdelete.nvim' -- extended buffer delete functionality
 
   -- Colorschemes --
-  use "Rigellute/shades-of-purple.vim"
-  use 'sainnhe/everforest'
+  -- use "Rigellute/shades-of-purple.vim"
+  -- use 'sainnhe/everforest'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Startup Dashboard -- Alpha --
   use{
@@ -96,6 +97,7 @@ return packer.startup(function(use)
   -- Bufferline / Statusline --
   use { "akinsho/bufferline.nvim", tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   use 'tamton-aquib/staline.nvim' -- statusline
+  -- use 'feline-nvim/feline.nvim'
 
   -- File tree viewer
   use {

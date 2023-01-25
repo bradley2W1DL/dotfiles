@@ -1,7 +1,22 @@
 -- chose installed plugin colorscheme or fallback to default
 
+-- To re-install commented colorschemes uncomment in plugins.lua
 -- "shades_of_purple"
-local colorscheme = "everforest" -- "everforest" is also a good option (with light mode)
+-- "everforest"
+-- "catppuccin"
+local colorscheme = "catppuccin"
+
+require("catppuccin").setup({
+  flavour = "frappe", -- macchiato, mocha
+  background = {
+    light = "latte",
+    dark = "frappe",
+  },
+  styles = {
+    comments = {}, -- "italic" by default
+    conditionals = {}, -- "italic" by default
+  }
+})
 
 local defaultColor = "slate"
 
