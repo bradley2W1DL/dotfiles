@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 treesitter_config.setup {
   -- this can also be "all"
   ensure_installed = { "bash", "lua", "gitignore", "javascript", "ruby", "markdown" },
@@ -25,3 +27,4 @@ treesitter_config.setup {
     disable = { "ruby" },
   },
 }
+

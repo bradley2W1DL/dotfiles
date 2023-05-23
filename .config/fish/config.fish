@@ -34,3 +34,6 @@ end
 set -x CONSOLE_USER bradley@himaxwell.com
 set -x EDITOR nvim
 
+## source rust .cargo dir for executables
+fish_add_path ~/.cargo/bin
+

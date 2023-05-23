@@ -73,8 +73,16 @@ vim.api.nvim_create_autocmd("BufLeave", {
   group = setYmlCursorCol,
 })
 
+-- Enable code folding using Treesitter
+-- TODO, this isn't working for ruby files all the time...
+local setExprFolding = vim.api.nvim_create_augroup("treesitter_expr_folding", { clear = true })
+vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
+  command = "set foldmethod=expr",
+  group = setExprFolding
+})
+
 -- set js files to JSX filetype for Emmet completions
--- this might be too blunt, but we'll see
+-- this might be too blunt, but we'll see (update: this is too blunt...how to detect just react specifically?)
 local setJsFiletype = vim.api.nvim_create_augroup("set_js_to_jsx", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = 'javascript',
@@ -83,3 +91,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 -- todo, _if_ this ends up being too blunt, may need to play with some way to detect if file
 -- is actually a React component (not sure how to do this aside from looking for a React import in the file itself)
+
+-- default Rust things...
+vim.g.rust_recommended_style = 0
+

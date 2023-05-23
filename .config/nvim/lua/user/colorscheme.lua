@@ -4,19 +4,19 @@
 -- "shades_of_purple"
 -- "everforest"
 -- "catppuccin"
-local colorscheme = "catppuccin"
+local colorscheme = "everforest"
 
-require("catppuccin").setup({
-  flavour = "frappe", -- macchiato, mocha
-  background = {
-    light = "latte",
-    dark = "frappe",
-  },
-  styles = {
-    comments = {}, -- "italic" by default
-    conditionals = {}, -- "italic" by default
-  }
-})
+-- require("catppuccin").setup({
+--   flavour = "frappe", -- frappe, macchiato, or mocha
+--   background = {
+--     light = "latte",
+--     dark = "frappe",
+--   },
+--   styles = {
+--     comments = {}, -- "italic" by default
+--     conditionals = {}, -- "italic" by default
+--   }
+-- })
 
 local defaultColor = "slate"
 
