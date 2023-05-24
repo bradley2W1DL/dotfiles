@@ -101,9 +101,9 @@ return packer.startup(function(use)
 
   -- File tree viewer
   use {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     requires = {
-      "kyazdani42/nvim-web-devicons", -- Fetch file type icons
+      "nvim-tree/nvim-web-devicons", -- Fetch file type icons
     }
   }
 

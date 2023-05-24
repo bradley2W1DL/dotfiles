@@ -21,7 +21,7 @@ for _, server in ipairs(servers) do
     flags = handlers.lsp_flags,
   }
 
-  if server == "sumneko_lua" then
+  if server == "lua_ls" then
     server_settings.settings = {
       Lua = { diagnostics = { globals = { "vim" } } }
     }
