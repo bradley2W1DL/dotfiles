@@ -34,6 +34,9 @@ end
 set -x CONSOLE_USER bradley@himaxwell.com
 set -x EDITOR nvim
 
+## OSX + rails + puma 6.1+ support
+set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
+
 ## source rust .cargo dir for executables
 fish_add_path ~/.cargo/bin
 
