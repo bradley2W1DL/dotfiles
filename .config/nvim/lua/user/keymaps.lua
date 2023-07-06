@@ -58,7 +58,9 @@ keymap("n", "<S-h>", ":bprevious<cr>", opts)
 
 -- Telescope keymaps
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+-- keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+-- replacing above with live_grep_args extension
+keymap("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fs", ":Telescope spell_suggest<CR>", opts)
@@ -66,8 +68,7 @@ keymap("n", "<leader>fkm", ":Telescope keymaps<CR>", opts)
 
 -- Git Blame keymaps
 keymap("n", "<leader>gb", ":GitBlameToggle<CR>", opts)
--- TODO this is working currently (trouble mapping a "cmd" mode thing)
--- keymap("c", "gitbrowse", [[<Cmd>GitBlameOpenCommitURL<CR>]], cmd_opts)
+keymap("n", "<leader>gy", ":GitBlameCopySHA<cr>", opts)
 
 -- ToggleTerm keymaps --
 keymap("n", "<leader>tt", ":ToggleTerm<CR>", opts)

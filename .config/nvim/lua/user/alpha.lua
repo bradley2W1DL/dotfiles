@@ -30,7 +30,8 @@ end
 dashboard.section.buttons.val = {
   button("<leader>e", "  File Explorer", ":NvimTreeToggle<cr>"),
   button("<leader>ff", "  Find Files", ":Telescope find_files<cr>"),
-  button("<leader>fg", "  Find Word", ":Telescope live_grep<cr>"),
+  button("<leader>fg", "  Live Grep", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"),
+  -- button("<leader>fg", "  Find Word", ":Telescope live_grep<cr>"),
   button("<leader>fkm", "  Find Keymaps", "Telescope keymaps<cr>"),
   button("<leader>tt", "  Open Terminal", ":ToggleTerm<cr>"),
   button("q", "  Quit", ":qa<cr>")

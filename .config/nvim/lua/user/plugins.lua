@@ -52,7 +52,12 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep' }
+    requires = {
+      'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep', "nvim-telescope/telescope-live-grep-args.nvim"
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'famiu/bufdelete.nvim' -- extended buffer delete functionality

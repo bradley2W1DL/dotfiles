@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local lga_actions = require "telescope-live-grep-args.actions"
 
 telescope.setup {
   defaults = {
@@ -16,13 +17,12 @@ telescope.setup {
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-
-        ["<C-c>"] = actions.close,
-
+        -- ["<C-j>"] = actions.move_selection_next,
+        -- ["<C-k>"] = actions.move_selection_previous,
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
+
+        ["<C-c>"] = actions.close,
 
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
@@ -90,6 +90,16 @@ telescope.setup {
       override_generic_sorter = true,
       override_file_sorter = true,
       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+    },
+    live_grep_args = {
+      -- additional config: https://github.com/nvim-telescope/telescope-live-grep-args.nvim#configuration
+      auto_quoting = true,
+      mappings = {
+        i = {
+          ["<C-f>"] = lga_actions.quote_prompt(), -- "quotes" current prompt
+          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+        }
+      },
     },
   },
 }
