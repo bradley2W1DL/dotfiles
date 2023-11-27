@@ -51,7 +51,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- implementation of the Popup API from vim in neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by other plugins
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
     requires = {
       'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep', "nvim-telescope/telescope-live-grep-args.nvim"
     },
