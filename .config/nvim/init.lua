@@ -20,16 +20,16 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 
 -- setup conf and lua modules
-require "user.options" -- the lua directory is implied, as well as the .lua file extension
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.completion"
-require "user.lsp" -- .lsp is a dir, so lua will search for an init.lua file in that dir
-require "user.treesitter"
-require "user.nvim_tree"
-require "user.telescope"
-require "user.autopairs"
-require "user.bufferline" -- could replace with stabline (part of staline)
-require "user.staline"
-require "user.gitblame"
+require "bird.options" -- the lua directory is implied, as well as the .lua file extension
+require "bird.keymaps"
+require "bird.plugins"
+require "bird.colorscheme"
+require "bird.completion"
+require "bird.lsp" -- .lsp is a dir, so lua will search for an init.lua file in that dir
+require "bird.treesitter"
+require "bird.nvim_tree"
+require "bird.telescope"
+require "bird.autopairs"
+require "bird.bufferline" -- could replace with stabline (part of staline)
+require "bird.staline"
+require "bird.gitblame"

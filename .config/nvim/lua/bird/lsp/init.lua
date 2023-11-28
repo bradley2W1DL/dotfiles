@@ -3,9 +3,9 @@ if not status_ok then
   return
 end
 
-local mason_lspconfig = require("user.lsp.mason-lspconfig")
+local mason_lspconfig = require("bird.lsp.mason-lspconfig")
 
-local handlers = require("user.lsp.handlers")
+local handlers = require("bird.lsp.handlers")
 
 handlers.setup_diagnostics()
 
@@ -41,7 +41,7 @@ for _, server in ipairs(servers) do
   if server == "diagnosticls" then
     -- syntax here maybe should be server_settings.init_options as to not overwrite default server_settings 🤷
     server_settings.init_options = {
-      linters = { rubocop = require("user.lsp.settings.rubocop") },
+      linters = { rubocop = require("bird.lsp.settings.rubocop") },
       filetypes = { ruby = "rubocop" }
     }
   end

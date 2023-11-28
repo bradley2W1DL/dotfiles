@@ -21,7 +21,7 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
-  augroup packer_user_config
+  augroup packer_bird_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
@@ -71,7 +71,7 @@ return packer.startup(function(use)
   use{
     "goolord/alpha-nvim",
     config = function ()
-      require('user.alpha') -- path to local dashboard config 
+      require('bird.alpha') -- path to local dashboard config 
     end,
     cmd = { "Alpha", "AlphaRedraw" },
     event="BufWinEnter"
@@ -121,7 +121,7 @@ return packer.startup(function(use)
   -- ToggleTerm (persistent terminals) --
   use {
     "akinsho/toggleterm.nvim",
-    config = "require('user.toggleterm')",
+    config = "require('bird.toggleterm')",
     event="BufWinEnter"
   }
 
