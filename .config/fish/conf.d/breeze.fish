@@ -35,7 +35,7 @@ abbr -a grs 'git reset --'
 abbr -a grsh 'git reset --hard'
 abbr -a grsl 'git reset HEAD~'
 abbr -a gsh 'git show'
-abbr -a gt 'git tag'
+# abbr -a gt 'git tag' # commenting out becuase iterferes with graphite's `gt` base command
 abbr -a gtop 'git rev-parse --show-toplevel'
 abbr -a gurl 'git config --get remote.origin.url'
 abbr -a runsv 'python -m SimpleHTTPServer'

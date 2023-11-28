@@ -39,7 +39,6 @@ SETUVAR _fish_abbr_grs:git\x20reset\x20\x2d\x2d
 SETUVAR _fish_abbr_grsh:git\x20reset\x20\x2d\x2dhard
 SETUVAR _fish_abbr_grsl:git\x20reset\x20HEAD\x7e
 SETUVAR _fish_abbr_gsh:git\x20show
-SETUVAR _fish_abbr_gt:git\x20tag
 SETUVAR _fish_abbr_gtop:git\x20rev\x2dparse\x20\x2d\x2dshow\x2dtoplevel
 SETUVAR _fish_abbr_gurl:git\x20config\x20\x2d\x2dget\x20remote\x2eorigin\x2eurl
 SETUVAR _fish_abbr_runsv:python\x20\x2dm\x20SimpleHTTPServer
