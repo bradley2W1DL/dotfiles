@@ -50,7 +50,7 @@ export FISH_BIN=$(which fish)
 # first check that it hasn't already been added:
 if grep -Fxq $FISH_BIN /etc/shells
 then
-  echo "🎣 Fish already an acceptable shell"
+  echo "🎣 Fish already an accepted shell"
 else
   echo "adding Fish to /etc/shells 🎣"
   echo $FISH_BIN | sudo tee -a /etc/shells

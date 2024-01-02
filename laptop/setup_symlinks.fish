@@ -7,7 +7,7 @@ set BACKUP_DIR $TARGET_DIR/.dotfiles_backup
 set BASIC_DOTFILES .gitconfig .gitignore
 
 if test ! -d $BACKUP_DIR
-  echo "📁 creatings .dotfiles_backup directory"
+  echo "📁 creating .dotfiles_backup directory"
   mkdir $BACKUP_DIR
 end
 

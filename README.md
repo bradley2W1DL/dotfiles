@@ -27,7 +27,7 @@ This script will
 
 #### Programs (not part of setup script)
 - iTerm
-- typora
+- obsidian
 - spotify
 - chrome
 - brave
