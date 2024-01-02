@@ -3,8 +3,10 @@
 -- To re-install commented colorschemes uncomment in plugins.lua
 -- "shades_of_purple"
 -- "everforest"
--- "catppuccin"
 local colorscheme = "everforest"
+
+vim.g.everforest_background = 'medium'
+vim.g.everforest_better_performance = 1
 
 -- require("catppuccin").setup({
 --   flavour = "frappe", -- frappe, macchiato, or mocha

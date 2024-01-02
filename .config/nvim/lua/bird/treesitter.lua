@@ -28,3 +28,4 @@ treesitter_config.setup {
   },
 }
 
+-- if syntax highlighting is broken try renaming the default neovim parser directory

@@ -89,8 +89,6 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "set filetype=javascriptreact",
   group = setJsFiletype,
 })
--- todo, _if_ this ends up being too blunt, may need to play with some way to detect if file
--- is actually a React component (not sure how to do this aside from looking for a React import in the file itself)
 
 -- default Rust things...
 vim.g.rust_recommended_style = 0
