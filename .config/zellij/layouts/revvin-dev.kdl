@@ -1,0 +1,64 @@
+layout {
+    cwd "/Users/bradley/himaxwell/revvin-setup"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="frontend" hide_floating_panes=true {
+        pane split_direction="vertical" {
+            pane name="Borrower Portal" cwd="frontend/apps/borrower-portal" focus=true size="50%"
+            pane size="50%" {
+                pane name="Lender Portal" cwd="frontend/apps/lender-portal" size="50%"
+                pane name="Lender Portal" cwd="frontend/apps/admin" size="50%"
+            }
+        }
+    }
+    tab name="backend-ruby" hide_floating_panes=true {
+        pane split_direction="vertical" {
+            pane name="Documents" cwd="services/documents" focus=true size="33%"
+            pane size="33%" {
+                pane name="Events" cwd="services/events" size="25%"
+                pane name="Integrations" cwd="services/integrations" size="25%"
+                pane name="Partners" cwd="services/partners" size="25%"
+                pane name="Responses" cwd="services/responses" size="25%"
+            }
+            pane size="33%" {
+                pane name="Users" cwd="services/users" size="33%"
+                pane name="Verticals" cwd="services/verticals" size="33%"
+                pane name="Workflows" cwd="services/workflows" size="33%"
+            }
+        }
+    }
+    tab name="backend-node" hide_floating_panes=true {
+        pane name="Customizations" cwd="/Users/bradley/himaxwell/revvin-setup" size="50%"
+        pane size="50%" split_direction="vertical" {
+            pane name="Search" cwd="services/search" size="25%"
+            pane name="Activity Feed" cwd="services/activity_feed" size="25%"
+            pane name="Apollo" cwd="services/apollo" size="25%"
+            pane name="Collaboration" cwd="services/collaboration" focus=true size="25%"
+        }
+    }
+    tab name="optional-node" focus=true hide_floating_panes=true {
+      pane split_direction="vertical" {
+        pane name="Zipper" cwd="services/zipper" focus=true size="50%"
+        pane size="50%" {
+          pane name="AV Scanner" cwd="services/av_scanner" size="50%"
+          pane name="CSV Exporter" cwd="services/csv_exporter" size="50%"
+        }
+      }
+    }
+    new_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane cwd="/Users/bradley/himaxwell/revvin-setup"
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+}

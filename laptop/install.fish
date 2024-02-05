@@ -50,6 +50,14 @@ if type -q asdf
   asdf install nodejs
   echo "  ...asdf install yarn"
   asdf install yarn
+  echo "  ...asdf install rust"
+  asdf install rust
+end
+
+if ! type -q zellij
+  # install zellij terminal multiplexer
+  echo "installing zellij (terminal multiplexer)"
+  brew install zellij
 end
 
 # Fish plugins
