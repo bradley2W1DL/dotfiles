@@ -94,4 +94,9 @@ nvim_web_devicons.set_icon{
     color = "#e06e6e",
     name = "Gemspec",
   },
+  Dockerfile = {
+    icon = "󰡨",
+    color = "#0db7ed",
+    name = "Dockerfile",
+  },
 }

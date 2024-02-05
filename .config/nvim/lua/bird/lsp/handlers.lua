@@ -71,13 +71,15 @@ local function lsp_keymaps(bufnr)
   -- Different keybinding command syntax
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-  vim.keymap.set("n", "gl", "<cmd>vim.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>", opts)
+  -- vim.keymap.set("n", "gl", vim.diagnostic.show_line_diagnostic, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-  -- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  vim.keymap.set({'n', 'x'}, '<F3>', vim.lsp.buf.format, opts)
   ----
   -- set these up as general keybindings in keybindings.lua
   -- vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, opts)

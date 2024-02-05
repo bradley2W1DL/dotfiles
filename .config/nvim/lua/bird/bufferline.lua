@@ -16,6 +16,7 @@ bufferline.setup {
       },
     },
     show_buffer_icons = true,
+    buffer_close_icon = "󰅖",
     always_show_bufferline = false,
   }
 }

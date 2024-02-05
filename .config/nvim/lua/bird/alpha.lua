@@ -2,22 +2,25 @@ local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 math.randomseed(os.time()) -- what does this do?
 
-local logo2 = {
-  [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
-  [[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
-  [[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
-  [[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
-  [[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
-  [[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+-- local logo2 = {
+--   [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
+--   [[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
+--   [[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
+--   [[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
+--   [[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+--   [[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+-- }
+
+local logo3 = {
+  [[     __/\/\____/\/\_     ____________     ____________     _/\/\____/\/\_     _/\/\___     ________________]],
+  [[    __/\/\/\__/\/\_     ___/\/\/\___     ___/\/\/\___     _/\/\____/\/\_     ________     _/\/\/\__/\/\___ ]],
+  [[   __/\/\/\/\/\/\_     _/\/\/\/\/\_     _/\/\__/\/\_     _/\/\____/\/\_     _/\/\___     _/\/\/\/\/\/\/\_  ]],
+  [[  __/\/\__/\/\/\_     _/\/\_______     _/\/\__/\/\_     ___/\/\/\/\___     _/\/\___     _/\/\__/\__/\/\_   ]],
+  [[ __/\/\____/\/\_     ___/\/\/\/\_     ___/\/\/\___     _____/\/\_____     _/\/\/\_     _/\/\______/\/\_    ]],
+  [[_______________     ____________     ____________     ______________     ________     ________________     ]],
 }
 
--- local logo = {
---   [[      ___  __              ]],
---   [[|\ | |__  /  \ \  / |  |\/|]],
---   [[| \| |___ \__/  \/  |  |  |]],
---   [[                           ]],
--- }
-dashboard.section.header.val = logo2
+dashboard.section.header.val = logo3
 dashboard.section.header.opts.hl = "AlphaHeader"
 
 local function button(sc, txt, keybind, keybind_opts)
@@ -28,19 +31,19 @@ local function button(sc, txt, keybind, keybind_opts)
 end
 
 dashboard.section.buttons.val = {
-  button("<leader>e", "  File Explorer", ":NvimTreeToggle<cr>"),
+  button("<leader>e", "󰙅  File Explorer", ":NvimTreeToggle<cr>"),
   button("<leader>ff", "  Find Files", ":Telescope find_files<cr>"),
   button("<leader>fg", "  Live Grep", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"),
   -- button("<leader>fg", "  Find Word", ":Telescope live_grep<cr>"),
   button("<leader>fkm", "  Find Keymaps", "Telescope keymaps<cr>"),
   button("<leader>tt", "  Open Terminal", ":ToggleTerm<cr>"),
-  button("q", "  Quit", ":qa<cr>")
+  button("q", "󰩈  Quit", ":qa<cr>")
 }
 
 local function footer()
   local total_plugins = #vim.tbl_keys(packer_plugins)
 
-  return "Loaded " .. total_plugins .. " plugins  "
+  return "Loaded " .. total_plugins .. " plugins 󰏗"
 end
 
 -- local heading = {

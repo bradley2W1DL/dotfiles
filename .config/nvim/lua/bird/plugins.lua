@@ -124,6 +124,15 @@ return packer.startup(function(use)
     event="BufWinEnter"
   }
 
+  -- Markdown file previewer (opens in browser window)
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  }
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins
