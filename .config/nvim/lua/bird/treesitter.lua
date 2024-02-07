@@ -5,9 +5,18 @@ end
 
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+-- force neovim to recognize .astro file extension as an "Astro" file
+vim.filetype.add({
+  extension = {
+    astro = "astro"
+  }
+})
+
 treesitter_config.setup {
   -- this can also be "all"
-  ensure_installed = { "bash", "lua", "gitignore", "javascript", "ruby", "markdown" },
+  ensure_installed = {
+    "astro", "bash", "lua", "gitignore", "javascript", "typescript", "ruby", "markdown"
+  },
   sync_install = false,
   auto_install = true,
 
@@ -28,4 +37,4 @@ treesitter_config.setup {
   },
 }
 
--- if syntax highlighting is broken try renaming the default neovim parser directory
+-- Hint: if syntax highlighting is broken try renaming the default neovim parser directory
