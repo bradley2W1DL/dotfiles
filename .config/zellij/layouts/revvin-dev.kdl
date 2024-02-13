@@ -9,7 +9,7 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="frontend" hide_floating_panes=true {
+    tab name="frontend" focus=true {
         pane split_direction="vertical" {
             pane name="Borrower Portal" cwd="frontend/apps/borrower-portal" focus=true size="50%"
             pane size="50%" {
@@ -43,7 +43,7 @@ layout {
             pane name="Collaboration" cwd="services/collaboration" focus=true size="25%"
         }
     }
-    tab name="optional-node" focus=true hide_floating_panes=true {
+    tab name="optional-node" hide_floating_panes=true {
       pane split_direction="vertical" {
         pane name="Zipper" cwd="services/zipper" focus=true size="50%"
         pane size="50%" {
@@ -51,14 +51,5 @@ layout {
           pane name="CSV Exporter" cwd="services/csv_exporter" size="50%"
         }
       }
-    }
-    new_tab_template {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        pane cwd="/Users/bradley/himaxwell/revvin-setup"
-        pane size=2 borderless=true {
-            plugin location="zellij:status-bar"
-        }
     }
 }

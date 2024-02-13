@@ -9,7 +9,14 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="frontend" focus=true hide_floating_panes=true {
+    tab name="frontend" focus=true {
+        floating_panes {
+          pane name=r"\__..Zen..__/" focus=true {
+            command "cbonsai"
+            args "-li"
+            close_on_exit true
+          }
+        }
         pane split_direction="vertical" {
             pane name="Borrower Portal" cwd="frontend/apps/borrower-portal" focus=true size="50%" {
               command "yarn"
@@ -61,16 +68,5 @@ layout {
           pane name="CSV Exporter" cwd="services/csv_exporter" size="50%"
         }
       }
-    }
-    new_tab_template {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        pane cwd="/Users/bradley/himaxwell/revvin-setup" command="cbonsai" {
-          args "-S"
-        }
-        pane size=2 borderless=true {
-            plugin location="zellij:status-bar"
-        }
     }
 }
