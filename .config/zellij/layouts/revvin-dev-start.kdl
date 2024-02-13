@@ -1,5 +1,5 @@
 layout {
-    cwd "/Users/bradley/himaxwell/revvin-setup"
+    cwd "$REVVIN_SETUP_PATH"
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
