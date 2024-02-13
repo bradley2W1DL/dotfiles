@@ -2,6 +2,8 @@
 
 ## Scripts to ensure the following programs are installed:
 # nvim
+# rg
+# jq
 # asdf
 #  -> ruby
 #  -> node
@@ -17,6 +19,16 @@
 if ! type -q brew
   echo "homebrew needs to be installed...🍺"
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+end
+
+if ! type -q rg
+  echo "installing ripgrep..."
+  brew install rg
+end
+
+if ! type -q jq
+  echo "installing jq (cli json parsing)"
+  brew install jq
 end
 
 if ! type -q nvim
