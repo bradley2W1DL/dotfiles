@@ -88,8 +88,12 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- auto-close (),[],{},'',""
 
   -- snippets --
-  use "L3MON4D3/LuaSnip" -- snippet engine
-  use "rafamadriz/friendly-snippets" -- whole buncha snippets
+  use {
+    "L3MON4D3/LuaSnip",
+    requires = "rafamadriz/friendly-snippets"
+  } -- snippet engine
+  
+  -- use "rafamadriz/friendly-snippets" -- whole buncha snippets
 
   -- LSP (language server protocol) -- ? not sure about "protocol"
   use "neovim/nvim-lspconfig"

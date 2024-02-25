@@ -22,33 +22,33 @@ local kind_icons = {
   Method = "m",
   Function = "󰊕",
   Constructor = "",
-  Field = "",
-  Variable = "󰫧",
-  Class = "",
+  Field = "󰇽",
+  Variable = "󰂡",
+  Class = "󰠱",
   Interface = "",
   Module = "",
-  Property = "",
+  Property = "󰜢",
   Unit = "",
-  Value = "",
+  Value = "󰰪",
   Enum = "",
-  Keyword = "",
+  Keyword = "󰌋",
   Snippet = "",
-  Color = "",
+  Color = "",
   File = "",
   Reference = "",
   Folder = "",
   EnumMember = "",
-  Constant = "",
+  Constant = "󰏿",
   Struct = "",
   Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Operator = "󰆕",
+  TypeParameter = "󰅲",
 }
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -64,10 +64,14 @@ cmp.setup {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    -- ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        if #cmp.get_entries() == 1 then
+          cmp.confirm({ select = true })
+        else
+          cmp.select_next_item()
+        end
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
@@ -127,6 +131,5 @@ cmp.setup {
   --  },
   experimental = {
     ghost_text = false,
-    native_menu = false,
   },
 }
