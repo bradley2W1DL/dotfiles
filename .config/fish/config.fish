@@ -40,3 +40,13 @@ set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 ## source rust .cargo dir for executables
 fish_add_path ~/.cargo/bin
 
+## OPENAI_KEY is used by ChatGPT.nvim plugin -- set from 1password
+if ! type -q op
+  echo "⚠️  unable to set OPENAI_KEY var becuase 1password cli plugin not installed!"
+end
+if type -q op && test -z OPENAI_KEY
+  echo "setting openai key"
+  set -U OPENAI_KEY (op read op://Private/openAI_chatGPT.nvim/credential --no-newline)
+end
+
+

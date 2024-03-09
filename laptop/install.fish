@@ -4,10 +4,11 @@
 # nvim
 # rg
 # jq
+# 1Password cli (op)
 # asdf
 #  -> ruby
 #  -> node
-#  -> python (TODO)
+#  -> rust
 #  -> yarn
 # git
 # fish (already be installed at this point)
@@ -29,6 +30,12 @@ end
 if ! type -q jq
   echo "installing jq (cli json parsing)"
   brew install jq
+end
+
+if ! type -q op
+  echo "installing 1password cli 🔑"
+  brew install 1password-cli 
+  echo "✅ make sure to install 1Password desktop app and sign in."
 end
 
 if ! type -q nvim

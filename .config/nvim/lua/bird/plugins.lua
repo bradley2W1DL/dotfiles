@@ -136,6 +136,21 @@ return packer.startup(function(use)
     ft = { "markdown" },
   }
 
+  -- ChatGPT integration ✨
+  use {
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd = "echo $OPENAPI_KEY"
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
 
 
   -- Automatically set up your configuration after cloning packer.nvim

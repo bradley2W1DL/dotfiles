@@ -1,5 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR BILBO:baggins
+SETUVAR OPENAI_KEY:sk\x2dOUclPP558A942zAdv4H2T3BlbkFJ0a34pXEy6ANpIe2N0Jz3
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_cdgtop:cd\x20\x28git\x20rev\x2dparse\x20\x2d\x2dshow\x2dtoplevel\x29
 SETUVAR _fish_abbr_g:git

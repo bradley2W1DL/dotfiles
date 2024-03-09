@@ -24,3 +24,4 @@ config/settings/development.yml
 docker-compose.yml
 
 config/secrets.yml
+.config/op/
