@@ -7,7 +7,10 @@
 .config/gh/hosts.yml
 .config/gh/state.yml
 .config/iterm2/AppSupport
+
 .config/fish/conf.d/secrets.fish
+.config/fish/fish_variables
+
 .config/yarn
 
 .config/graphite/user_config

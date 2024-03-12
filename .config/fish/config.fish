@@ -44,9 +44,9 @@ fish_add_path ~/.cargo/bin
 if ! type -q op
   echo "⚠️  unable to set OPENAI_KEY var becuase 1password cli plugin not installed!"
 end
-if type -q op && test -z OPENAI_KEY
-  echo "setting openai key"
-  set -U OPENAI_KEY (op read op://Private/openAI_chatGPT.nvim/credential --no-newline)
+if type -q op && test -z "$OPENAI_API_KEY"
+  echo "setting openai key in env 🤖"
+  set -Ux OPENAI_API_KEY (op read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end
 
 

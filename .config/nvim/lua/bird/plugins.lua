@@ -92,8 +92,6 @@ return packer.startup(function(use)
     "L3MON4D3/LuaSnip",
     requires = "rafamadriz/friendly-snippets"
   } -- snippet engine
-  
-  -- use "rafamadriz/friendly-snippets" -- whole buncha snippets
 
   -- LSP (language server protocol) -- ? not sure about "protocol"
   use "neovim/nvim-lspconfig"
@@ -140,9 +138,8 @@ return packer.startup(function(use)
   use {
     "jackMort/ChatGPT.nvim",
     config = function()
-      require("chatgpt").setup({
-        api_key_cmd = "echo $OPENAPI_KEY"
-      })
+      -- requires that $OPENAI_API_KEY env variable is exposed
+      require("chatgpt").setup()
     end,
     requires = {
       "MunifTanjim/nui.nvim",
