@@ -36,6 +36,7 @@ local options = {
   colorcolumn = "120",                     -- show a column line at 120 chars (max line length)
   foldlevelstart = 99,                     -- when file is opened don't have any folding (e.g. yml files)
   laststatus = 2,                          -- statusline
+  background = os.getenv('NVIM_BG') or 'dark'
 }
 
 vim.opt.shortmess:append "c"
