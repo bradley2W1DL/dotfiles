@@ -27,15 +27,9 @@ for _, server in ipairs(servers) do
     }
   end
 
-  if server == "solargraph" then
-    server_settings.settings = {
-      solargraph = {
-        diagnostics = true,
-        formatting = false,
-        autoFormat = false,
-        useBundler = true,
-      }
-    }
+  if server == "rubocop" then
+    server_settings.cmd = { "bundle", "exec", "rubocop", "--format", "json", "--force-exclusion", "%filepath" }
+    server_settings.root_dir = lspconfig.util.root_pattern("Gemfile", ".git", ".")
   end
 
   if server == "diagnosticls" then
@@ -62,3 +56,19 @@ for _, server in ipairs(servers) do
   lspconfig[server].setup(server_settings)
 end
 
+-- Mason install of solargraph isn't playing nicely with asdf.
+-- instead, install gem manually (`gem install solargraph`) from appropriate project ruby version
+lspconfig.solargraph.setup({
+  cmd = { os.getenv("HOME") .. "/.asdf/shims/solargraph", "stdio" },
+  root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
+  on_attach = handlers.on_attach,
+  capabilities = handlers.capabilities,
+  settings = {
+    solargraph = {
+      diagnostics = true,
+      formatting = false,
+      autoFormat = false,
+      useBundler = true,
+    }
+  }
+})

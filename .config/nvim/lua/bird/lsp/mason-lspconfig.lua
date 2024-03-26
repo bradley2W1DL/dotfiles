@@ -12,7 +12,7 @@ end
 mason.setup()
 
 mason_lspconfig.setup {
-  ensure_installed = { "lua_ls", "solargraph", "eslint", "tsserver", "emmet_ls" }
+  ensure_installed = { "lua_ls", "eslint", "tsserver", "emmet_ls", "rubocop" }
 }
 
 return mason_lspconfig
