@@ -139,7 +139,12 @@ return packer.startup(function(use)
     "jackMort/ChatGPT.nvim",
     config = function()
       -- requires that $OPENAI_API_KEY env variable is exposed
-      require("chatgpt").setup()
+      require("chatgpt").setup({
+        openai_params = {
+          model = "gpt-4-turbo-preview",
+          max_tokens = 500,
+        }
+      })
     end,
     requires = {
       "MunifTanjim/nui.nvim",
