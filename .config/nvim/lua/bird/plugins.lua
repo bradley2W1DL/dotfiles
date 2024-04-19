@@ -65,6 +65,7 @@ return packer.startup(function(use)
   -- Colorschemes --
   -- use "Rigellute/shades-of-purple.vim"
   use 'sainnhe/everforest'
+  use 'protesilaos/tempus-themes-vim'
   -- use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Startup Dashboard -- Alpha --
