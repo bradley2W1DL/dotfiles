@@ -9,3 +9,5 @@
 	defaultBranch = main 
 [core]
 	excludesfile = ~/.gitignore
+[diff]
+	tool = nvimdiff

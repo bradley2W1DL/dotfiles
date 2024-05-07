@@ -20,6 +20,11 @@ fish_add_path /opt/homebrew/bin
 ## ALIASES ##
 alias vim=nvim
 
+# go back two directories
+function ...
+  ../..
+end
+
 ## missing breeze commands
 abbr -a gcb 'git checkout -b'
 
