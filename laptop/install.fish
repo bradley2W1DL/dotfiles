@@ -52,7 +52,7 @@ if ! type -q asdf
     rm -rf ~/.asdf
   end
 
-  # Clone specific asdf version 0.11
+  # Clone specific asdf version 0.11 # why this version??
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.0
   if ! test -d $TARGET_DIR/.config/fish/completions
     mkdir -p ~/.config/fish/completions

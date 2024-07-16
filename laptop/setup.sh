@@ -64,8 +64,10 @@ fish <<END_FISH
   # ensure hombrew is in the $PATH
   fish_add_path /opt/homebrew/bin
 
-  $(pwd)/laptop/setup_symlinks.fish
+  # use GNU Stow instead of setup_symlinks
+  # $(pwd)/laptop/setup_symlinks.fish
 
+  $(pwd)/laptop/stow.fish
   $(pwd)/laptop/install.fish
 END_FISH
 

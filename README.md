@@ -7,7 +7,7 @@ $ ./laptop/setup.sh
 ```
 
 This script will
-- symlink dotfiles from this repo into $HOME/.config dir
+- symlink dotfiles from this repo into $HOME dir (using GNU Stow)
 - install the CLI programs listed below
 
 #### CLI based programs
@@ -35,7 +35,5 @@ This script will
 - brave
 
 ##### TODO
-- move iterm config out of symlinks
-  - let iterm itself manage that locally -- may just want to copy in profiles
 - get asdf package installs working
   - I think just need to create a .tool-versions file (not symlinked)
