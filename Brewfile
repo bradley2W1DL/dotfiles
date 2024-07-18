@@ -1,12 +1,26 @@
 cask "iterm2"
 
+tap "heroku/brew"
+tap "ngrok/ngrok"
+tap "withgraphite/tap"
 tap "homebrew/cask-fonts"
+
 cask "font-hack-nerd-font"
 
 # cli
 brew "rg"
 brew "jq"
 brew "zellij"
+# github cli
+brew "gh"
+brew "hub"
+
+brew "heroku/brew/heroku"
+brew "withgraphite/tap/graphite"
+brew "tree"
+brew "ripgrep"
+brew "cbonsai"
+cask "ngrok"
 
 # Browsers
 cask "google-chrome"
