@@ -1,0 +1,9 @@
+^/README.*
+^/LICENSE.*
+
+\.git
+
+# stow ignore overrides
+fonts
+laptop
+uninstall_commands.md

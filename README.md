@@ -7,15 +7,15 @@ $ ./laptop/setup.sh
 ```
 
 This script will
-- symlink dotfiles from this repo into $HOME/.config dir
+- symlink dotfiles from this repo into $HOME dir (using GNU Stow)
 - install the CLI programs listed below
 
 #### CLI based programs
 
 - homebrew
+- git
 - neovim
   - ripgrep (dependency for live_grep to work)
-- git
 - fish (shell alternative)
   - fisher (fish plugins)
   - breeze (git aliases)
@@ -27,15 +27,16 @@ This script will
   - rust
 - zellij (terminal multiplexer)
 
-#### Programs (not part of setup script)
+#### Programs
 - iTerm
 - obsidian
 - spotify
 - chrome
 - brave
+- orbstack
+- amphetamine
+- rectangle
 
 ##### TODO
-- move iterm config out of symlinks
-  - let iterm itself manage that locally -- may just want to copy in profiles
 - get asdf package installs working
   - I think just need to create a .tool-versions file (not symlinked)
