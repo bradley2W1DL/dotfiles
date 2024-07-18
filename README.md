@@ -13,9 +13,9 @@ This script will
 #### CLI based programs
 
 - homebrew
+- git
 - neovim
   - ripgrep (dependency for live_grep to work)
-- git
 - fish (shell alternative)
   - fisher (fish plugins)
   - breeze (git aliases)
@@ -27,12 +27,15 @@ This script will
   - rust
 - zellij (terminal multiplexer)
 
-#### Programs (not part of setup script)
+#### Programs
 - iTerm
 - obsidian
 - spotify
 - chrome
 - brave
+- orbstack
+- amphetamine
+- rectangle
 
 ##### TODO
 - get asdf package installs working

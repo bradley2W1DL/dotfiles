@@ -1,7 +1,6 @@
 #!/opt/homebrew/bin/fish
 
 ## Ensure "Stow" is installed and then run the stow command
-
 if ! type -q stow
   echo "Installing GNU stow ..."
   brew install stow

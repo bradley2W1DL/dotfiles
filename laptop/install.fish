@@ -17,26 +17,16 @@
 #  -> breeze (scm-breeze-ish)
 # xcode-select
 
+# this command _should_ be redundant
 if ! type -q brew
   echo "homebrew needs to be installed...🍺"
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 end
 
-if ! type -q rg
-  echo "installing ripgrep..."
-  brew install rg
-end
+# run brew with local Brewfile
+brew bundle -v
 
-if ! type -q jq
-  echo "installing jq (cli json parsing)"
-  brew install jq
-end
-
-if ! type -q op
-  echo "installing 1password cli 🔑"
-  brew install 1password-cli 
-  echo "✅ make sure to install 1Password desktop app and sign in."
-end
+echo "✅ make sure to install 1Password desktop app and sign in."
 
 if ! type -q nvim
   brew install neovim
@@ -52,8 +42,8 @@ if ! type -q asdf
     rm -rf ~/.asdf
   end
 
-  # Clone specific asdf version 0.11 # why this version??
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.0
+  # Clone specific asdf version 0.14 # current latest
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
   if ! test -d $TARGET_DIR/.config/fish/completions
     mkdir -p ~/.config/fish/completions
   end
@@ -71,12 +61,6 @@ if type -q asdf
   asdf install yarn
   echo "  ...asdf install rust"
   asdf install rust
-end
-
-if ! type -q zellij
-  # install zellij terminal multiplexer
-  echo "installing zellij (terminal multiplexer)"
-  brew install zellij
 end
 
 # Fish plugins
