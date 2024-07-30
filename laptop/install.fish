@@ -36,7 +36,7 @@ if ! type -q nvim
 end
 
 if ! type -q asdf
-  echo "installing asdf (version manager)"
+  # echo "installing asdf (version manager)"
   if test -d ~/.asdf
     # remove existing asdf config files
     rm -rf ~/.asdf
@@ -53,14 +53,14 @@ end
 
 if type -q asdf
   # install ruby, node, and yarn 
-  echo "  ...asdf install ruby"
-  asdf install ruby
-  echo "  ...asdf install nodejs"
-  asdf install nodejs
-  echo "  ...asdf install yarn"
-  asdf install yarn
-  echo "  ...asdf install rust"
-  asdf install rust
+  echo "  ...add asdf plugin ruby"
+  asdf plugin add ruby
+  echo "  ...add asdf plugin nodejs"
+  asdf plugin add nodejs
+  echo "  ...asdf plugin add yarn"
+  asdf plugin add yarn
+  echo "  ...asdf plugin add rust"
+  asdf plugin add rust
 end
 
 # Fish plugins

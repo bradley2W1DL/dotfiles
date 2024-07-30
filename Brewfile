@@ -27,6 +27,8 @@ cask "google-chrome"
 cask "brave-browser"
 cask "firefox@developer-edition"
 
+cask "postman"
+
 # clipboard manager
 cask "flycut"
 
@@ -49,3 +51,4 @@ cask "orbstack"
 brew "mas"
 
 mas "Amphetamine", id: 937984704
+mas "Microsoft Remote Desktop", id: 1295203466
