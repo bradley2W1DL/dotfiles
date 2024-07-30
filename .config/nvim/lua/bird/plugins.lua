@@ -103,7 +103,7 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- Bufferline / Statusline --
-  use { "akinsho/bufferline.nvim", tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use { "akinsho/bufferline.nvim", tag = "v4.*", requires = 'kyazdani42/nvim-web-devicons' }
   use 'tamton-aquib/staline.nvim' -- statusline
 
   -- File tree viewer
@@ -155,6 +155,25 @@ return packer.startup(function(use)
     }
   }
 
+  -- Github Copilot 🤖 -- not using the official copilot.vim plugin
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        -- disabling these to prevent interference with copilot_cmp
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   --   keep this bit after all other plugins

@@ -30,7 +30,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- open up Nvim-Tree (file explorer)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
--- keymap("n", "<leader>.e", ":NvimTreeFindFile<CR>", opts)
 
 keymap('n', '<space>d', vim.diagnostic.open_float, opts)
 keymap('n', '[d', vim.diagnostic.goto_prev, opts)
