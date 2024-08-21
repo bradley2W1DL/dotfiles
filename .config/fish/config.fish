@@ -42,9 +42,6 @@ set -x EDITOR nvim
 ## OSX + rails + puma 6.1+ support
 set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 
-## ruby config opts for 3.2.2 install
-set -x RUBY_CONFIGURE_OPTS "--with-zlib-dir=$(brew --prefix zlib) --with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix libyaml)"
-
 ## source rust .cargo dir for executables
 fish_add_path ~/.cargo/bin
 

@@ -29,6 +29,9 @@ function revvin-start
   docker compose -f docker-compose-external.yml up -d --remove-orphans
 
   set -l time_now (date +"%s")
+  # todo, this check breaks down if there are two cached json files,
+  # Probably from different profiles being logged in -- Prod vs. dev
+  # ideally we could check which sso profile is active...
   set -l aws_token_expires_at (
     find ~/.aws/sso/cache -type f -not -name "botocore*.json" | xargs cat | jq .expiresAt | xargs -J % date -jf "%FT%TZ" % +"%s"
   )

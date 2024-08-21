@@ -52,7 +52,8 @@ telescope.setup {
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+        -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist, -- Ctrl-q is dangerous...
+        ["<C-a>"] = actions.send_to_qflist + actions.open_qflist, -- open all in quickfix
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
         ["j"] = actions.move_selection_next,
