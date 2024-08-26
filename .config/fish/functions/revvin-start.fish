@@ -9,6 +9,7 @@ function revvin-start
     echo "revvin-start : start up NextGen dev env"
     echo "   -- start docker external dependencies"
     echo "   -- cleanup existing 'rev-dev' zellij session (unless --keep flag passed)"
+    echo "   -- check if aws sso token needs a refresh"
     echo "   -- start fresh 'rev-dev' session"
     echo ""
     echo "usage: revvin-start [-k|--keep] [-h|--help]"
@@ -19,21 +20,21 @@ function revvin-start
 
   if ! set -ql _flag_keep
     zellij delete-session --force $SESSION_NAME 2>/dev/null
-    # this needs some work.  If the session isn't removed then I should just attach to exisiting
+    # this needs some work.  If the session isn't killed then I should just attach to exisiting
     # session and restart everything...
   end
 
   cd $HOME/himaxwell/revvin-setup/
 
   # start background services (postgres, rabbitMQ, etc.)
-  docker compose -f docker-compose-external.yml up -d --remove-orphans
+  docker compose -f docker-compose-external.yml up -d --remove-orphans &
+  wait $last_pid
 
   set -l time_now (date +"%s")
-  # todo, this check breaks down if there are two cached json files,
-  # Probably from different profiles being logged in -- Prod vs. dev
-  # ideally we could check which sso profile is active...
   set -l aws_token_expires_at (
-    find ~/.aws/sso/cache -type f -not -name "botocore*.json" | xargs cat | jq .expiresAt | xargs -J % date -jf "%FT%TZ" % +"%s"
+    # look for .startUrl key in json files and exclude files that don't have it
+    set -l cache_files (find ~/.aws/sso/cache -type f -not -name "botocore*.json")
+    cat $cache_files | jq -sc '.[] | select(has("startUrl")) | .expiresAt' | xargs -J % date -jf "%FT%TZ" % +"%s"
   )
   # if no token file is found, default this to 0
   if ! set -q aws_token_expires_at
