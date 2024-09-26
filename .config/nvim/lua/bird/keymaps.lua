@@ -69,23 +69,24 @@ keymap("n", "<leader>fkm", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>gb", ":GitBlameToggle<CR>", opts)
 keymap("n", "<leader>gy", ":GitBlameCopySHA<cr>", opts)
 
--- ToggleTerm keymaps --
-keymap("n", "<leader>tt", ":ToggleTerm<CR>", opts)
---  *these apply when in the terminal window
-function _G.set_terminal_keymaps()
-  local term_opt = { buffer = 0 }
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], term_opt)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], term_opt)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opt)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opt)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opt)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], term_opt)
-end
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+-- -- ToggleTerm keymaps -- (removed the ToggleTerm plugin for now)
+-- keymap("n", "<leader>tt", ":ToggleTerm<CR>", opts)
+-- --  *these apply when in the terminal window
+-- function _G.set_terminal_keymaps()
+--   local term_opt = { buffer = 0 }
+--   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], term_opt)
+--   vim.keymap.set('t', 'jk', [[<C-\><C-n>]], term_opt)
+--   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], term_opt)
+--   vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], term_opt)
+--   vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], term_opt)
+--   vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], term_opt)
+-- end
+-- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- Insert --
 ------------ 
 -- enable "fast-exit" of insert mode with "jk" combo 
+-- be forwarned, you will start typing "jk" at the end of all your sentences in ALL text editors
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
@@ -95,7 +96,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move selected text up and down
-keymap("v", "<A-k>", ":m .-2<cr>==", opts) -- TODO these move command not working with osx
+keymap("v", "<A-k>", ":m .-2<cr>==", opts)
 keymap("v", "∆", ":m .+1<CR>==", opts)
 -- retains yanked line in register when pasting over selected text
 keymap("v", "p", '"_dP', opts)

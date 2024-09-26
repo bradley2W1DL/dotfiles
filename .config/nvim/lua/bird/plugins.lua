@@ -120,12 +120,16 @@ return packer.startup(function(use)
   -- Yaml syntax folding
   use "pedrohdz/vim-yaml-folds"
 
+  -- Easy commenting
+  use 'tpope/vim-commentary'
+
   -- ToggleTerm (persistent terminals) --
-  use {
-    "akinsho/toggleterm.nvim",
-    config = "require('bird.toggleterm')",
-    event="BufWinEnter"
-  }
+  -- may be able to get rid of this now that I've been using zellij
+  -- use {
+  --   "akinsho/toggleterm.nvim",
+  --   config = "require('bird.toggleterm')",
+  --   event="BufWinEnter"
+  -- }
 
   -- Markdown file previewer (opens in browser window)
   use {
@@ -170,6 +174,7 @@ return packer.startup(function(use)
   }
   use {
     "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
     config = function()
       require("copilot_cmp").setup()
     end

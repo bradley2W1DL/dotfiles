@@ -16,7 +16,7 @@ vim.filetype.add({
 treesitter_config.setup {
   -- this can also be "all"
   ensure_installed = {
-    "astro", "bash", "lua", "gitignore", "javascript", "typescript", "ruby", "markdown"
+    "astro", "bash", "lua", "gitignore", "javascript", "typescript", "tsx", "ruby", "markdown"
   },
   sync_install = false,
   auto_install = true,
