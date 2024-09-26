@@ -62,7 +62,7 @@ layout {
     }
     tab name="optional-node" hide_floating_panes=true {
       pane split_direction="vertical" {
-        pane name="Zipper" cwd="services/zipper" focus=true size="50%" command="./docker-up"
+        pane name="Zipper" cwd="services/zipper" focus=true size="50%"
         pane size="50%" {
           pane name="AV Scanner" cwd="services/av_scanner" size="50%"
           pane name="CSV Exporter" cwd="services/csv_exporter" size="50%"

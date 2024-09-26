@@ -83,7 +83,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
 })
 
 -- set js files to JSX filetype for Emmet completions
--- this might be too blunt, but we'll see (update: this is too blunt...how to detect just react specifically?)
+-- this might be too blunt, but we'll see (update: this _is_ too blunt...how to detect just react specifically?)
 local setJsFiletype = vim.api.nvim_create_augroup("set_js_to_jsx", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = 'javascript',

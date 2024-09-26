@@ -33,12 +33,15 @@ for _, server in ipairs(servers) do
   end
 
   if server == "diagnosticls" then
-    -- syntax here maybe should be server_settings.init_options as to not overwrite default server_settings 🤷
     server_settings.init_options = {
       linters = { rubocop = require("bird.lsp.settings.rubocop") },
       filetypes = { ruby = "rubocop" }
     }
   end
+
+  -- if server == "tsserver" then
+  --   server_settings.name = "ts_ls"
+  -- end
 
   if server == 'emmet_ls' then
     server_settings.capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -51,6 +54,12 @@ for _, server in ipairs(servers) do
         }
       }
     }
+  end
+
+  if server == 'graphql' then
+    server_settings.cmd = { "graphql-lsp", "server", "-m", "stream" }
+    server_settings.filetypes = { "graphql", "typescriptreact", "typescript" }
+    -- server_settings.settings = { 'graphql-config.load.legacy' = true }
   end
 
   lspconfig[server].setup(server_settings)
