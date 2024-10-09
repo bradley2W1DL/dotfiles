@@ -1,0 +1,1 @@
+source "/Users/bird/.deno/env.fish"
