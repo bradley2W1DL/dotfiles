@@ -52,11 +52,11 @@ layout {
         }
     }
     tab name="backend-node" hide_floating_panes=true {
-        pane name="Customizations" cwd="services/customizations" size="50%" command="./docker-up"
+        pane name="Apollo" focus=true cwd="services/apollo" size="50%" command="./docker-up"
         pane size="50%" split_direction="vertical" {
+            pane name="Customizations" cwd="services/customizations" size="25%" command="./docker-up"
             pane name="Search" cwd="services/search" size="25%" command="./docker-up"
             pane name="Activity Feed" cwd="services/activity_feed" size="25%" command="./docker-up"
-            pane name="Apollo" focus=true cwd="services/apollo" size="25%" command="./docker-up"
             pane name="Collaboration" cwd="services/collaboration" size="25%" command="./docker-up"
         }
     }
