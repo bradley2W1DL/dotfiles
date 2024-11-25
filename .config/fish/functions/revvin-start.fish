@@ -30,6 +30,8 @@ function revvin-start
   docker compose -f docker-compose-external.yml up -d --remove-orphans &
   wait $last_pid
 
+  # timezone = UTC to match aws token TZ
+  set -gx TZ UTC
   set -l time_now (date +"%s")
   set -l aws_token_expires_at (
     # look for .startUrl key in json files and exclude files that don't have it
@@ -40,6 +42,9 @@ function revvin-start
   if ! set -q aws_token_expires_at
     set -l aws_token_expires_at 0
   end
+
+  # unsure TZ env variable is unset
+  set -e TZ
   
   if test $time_now -ge $aws_token_expires_at
     echo "need to refresh aws token..."
