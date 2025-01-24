@@ -1,0 +1,13 @@
+# Config file for Ghostty terminal emulator
+# see ghostty.org/docs for more info
+
+# to list all available themes use `ghostty +list-themes`
+theme = catppuccin-mocha
+# theme = "Everforest Dark - Hard"
+
+## 
+font-family = "Hack Nerd Font Mono"
+font-feature = -liga
+font-size = 14
+
+

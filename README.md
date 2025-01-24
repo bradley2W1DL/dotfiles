@@ -28,7 +28,7 @@ This script will
 - zellij (terminal multiplexer)
 
 #### Programs
-- iTerm
+- Ghostty
 - obsidian
 - spotify
 - chrome

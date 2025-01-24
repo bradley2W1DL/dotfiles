@@ -1,4 +1,5 @@
-cask "iterm2"
+# terminal emulator
+cask "ghostty"
 
 tap "heroku/brew"
 tap "ngrok/ngrok"
@@ -10,6 +11,7 @@ cask "font-hack-nerd-font"
 # cli
 brew "rg"
 brew "jq"
+brew "fd"
 brew "zellij"
 # github cli
 brew "gh"
@@ -31,6 +33,9 @@ cask "postman"
 
 # clipboard manager
 cask "flycut"
+
+# meeting status bar
+brew "meetingbar"
 
 # window arrangement manager
 cask "rectangle"
