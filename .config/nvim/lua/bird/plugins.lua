@@ -124,7 +124,7 @@ return packer.startup(function(use)
   use 'tpope/vim-commentary'
 
   -- ToggleTerm (persistent terminals) --
-  -- may be able to get rid of this now that I've been using zellij
+  -- removing this now that I've been using zellij
   -- use {
   --   "akinsho/toggleterm.nvim",
   --   config = "require('bird.toggleterm')",
@@ -146,8 +146,8 @@ return packer.startup(function(use)
       -- requires that $OPENAI_API_KEY env variable is exposed
       require("chatgpt").setup({
         openai_params = {
-          model = "gpt-4-turbo-preview",
-          max_tokens = 500,
+          model = "gpt-4o-mini", -- gpt-4o also available but _much_ more expensive
+          max_tokens = 750,
         }
       })
     end,
