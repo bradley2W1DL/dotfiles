@@ -20,8 +20,6 @@ function revvin-start
 
   if ! set -ql _flag_keep
     zellij delete-session --force $SESSION_NAME 2>/dev/null
-    # this needs some work.  If the session isn't killed then I should just attach to exisiting
-    # session and restart everything...
   end
 
   cd $HOME/himaxwell/revvin-setup/
@@ -53,5 +51,5 @@ function revvin-start
   end
 
   # start up zellij with the full revvin layout
-  zellij --layout revvin-dev-start --session $SESSION_NAME
+  zellij  --new-session-with-layout revvin-dev-start --session $SESSION_NAME
 end
