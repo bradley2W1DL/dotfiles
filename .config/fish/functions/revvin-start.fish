@@ -22,11 +22,10 @@ function revvin-start
     zellij delete-session --force $SESSION_NAME 2>/dev/null
   end
 
-  cd $HOME/himaxwell/revvin-setup/
+  cd $REVVIN_SETUP_PATH
 
   # start background services (postgres, rabbitMQ, etc.)
-  docker compose -f docker-compose-external.yml up -d --remove-orphans &
-  wait $last_pid
+  docker compose -f docker-compose-external.yml up -d --remove-orphans & wait $last_pid
 
   # timezone = UTC to match aws token TZ
   set -gx TZ UTC

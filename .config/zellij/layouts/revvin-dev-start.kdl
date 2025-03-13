@@ -37,35 +37,35 @@ layout {
     }
     tab name="backend-ruby" hide_floating_panes=true {
         pane split_direction="vertical" {
-            pane name="Documents" cwd="services/documents" focus=true size="33%" command="./docker-up"
+            pane name="Documents" cwd="documents" focus=true size="33%" command="./docker-up"
             pane size="33%" {
-                pane name="Events" cwd="services/events" size="25%" command="./docker-up"
-                pane name="Integrations" cwd="services/integrations" size="25%" command="./docker-up"
-                pane name="Partners" cwd="services/partners" size="25%" command="./docker-up"
-                pane name="Responses" cwd="services/responses" size="25%" command="./docker-up"
+                pane name="Events" cwd="events" size="25%" command="./docker-up"
+                pane name="Integrations" cwd="integrations" size="25%" command="./docker-up"
+                pane name="Partners" cwd="partners" size="25%" command="./docker-up"
+                pane name="Responses" cwd="responses" size="25%" command="./docker-up"
             }
             pane size="33%" {
-                pane name="Users" cwd="services/users" size="33%" command="./docker-up"
-                pane name="Verticals" cwd="services/verticals" size="33%" command="./docker-up"
-                pane name="Workflows" cwd="services/workflows" size="33%" command="./docker-up"
+                pane name="Users" cwd="users" size="33%" command="./docker-up"
+                pane name="Verticals" cwd="verticals" size="33%" command="./docker-up"
+                pane name="Workflows" cwd="workflows" size="33%" command="./docker-up"
             }
         }
     }
     tab name="backend-node" hide_floating_panes=true {
-        pane name="Apollo" focus=true cwd="services/apollo" size="50%" command="./docker-up"
+        pane name="Apollo" focus=true cwd="apollo" size="50%" command="./docker-up"
         pane size="50%" split_direction="vertical" {
-            pane name="Customizations" cwd="services/customizations" size="25%" command="./docker-up"
-            pane name="Search" cwd="services/search" size="25%" command="./docker-up"
-            pane name="Activity Feed" cwd="services/activity_feed" size="25%" command="./docker-up"
-            pane name="Collaboration" cwd="services/collaboration" size="25%" command="./docker-up"
+            pane name="Customizations" cwd="customizations" size="25%" command="./docker-up"
+            pane name="Search" cwd="search" size="25%" command="./docker-up"
+            pane name="Activity Feed" cwd="activity_feed" size="25%" command="./docker-up"
+            pane name="Collaboration" cwd="collaboration" size="25%" command="./docker-up"
         }
     }
     tab name="optional-node" hide_floating_panes=true {
       pane split_direction="vertical" {
-        pane name="Zipper" cwd="services/zipper" focus=true size="50%"
+        pane name="Zipper" cwd="zipper" focus=true size="50%"
         pane size="50%" {
-          pane name="AV Scanner" cwd="services/av_scanner" size="50%"
-          pane name="CSV Exporter" cwd="services/csv_exporter" size="50%"
+          pane name="AV Scanner" cwd="av_scanner" size="50%"
+          pane name="CSV Exporter" cwd="csv_exporter" size="50%"
         }
       }
     }
