@@ -40,9 +40,6 @@ function ...
   ../..
 end
 
-## missing breeze commands
-abbr -a gcb 'git checkout -b'
-
 function heroku-console
   heroku run -a $argv[1] -e CONSOLE_USER=$CONSOLE_USER "bundle exec rails console -- --nomultiline"
 end

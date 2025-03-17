@@ -40,6 +40,11 @@ abbr -a gtop 'git rev-parse --show-toplevel'
 abbr -a gurl 'git config --get remote.origin.url'
 abbr -a runsv 'python -m SimpleHTTPServer'
 
+# Missing commands from breeze
+abbr -a gbr 'gh browse' # github cli tool
+abbr -a gcb 'git checkout -b'
+
+
 function _breeze_uninstall -e breeze_uninstall
     abbr -e cdgtop
     abbr -e g
