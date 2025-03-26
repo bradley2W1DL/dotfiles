@@ -1,5 +1,12 @@
 #!/opt/homebrew/bin/fish
 
+###################################
+#
+# Note: this has been deprecated, use GNU Stow instead
+#   * it has already been removed from the setup script, just leaving here for reference.
+#
+# #################################
+
 set TARGET_DIR $HOME
 set BACKUP_DIR $TARGET_DIR/.dotfiles_backup
 

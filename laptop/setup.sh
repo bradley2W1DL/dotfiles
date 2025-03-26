@@ -2,7 +2,7 @@
 
 ############################
 #
-# ideally this would be a full setup script
+# Install all the basic packages to get rollin'
 #
 ################################
 
@@ -60,14 +60,12 @@ fi
 sudo chsh -s $FISH_BIN $CURRENT_USER
 
 # execute remaining setup scripts in fish
-fish <<END_FISH
+fish <<FISH_SCRIPT
   # ensure hombrew is in the $PATH
   fish_add_path /opt/homebrew/bin
 
   # use GNU Stow instead of setup_symlinks
-  # $(pwd)/laptop/setup_symlinks.fish
-
   $(pwd)/laptop/stow.fish
   $(pwd)/laptop/install.fish
-END_FISH
+FISH_SCRIPT
 
