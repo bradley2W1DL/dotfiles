@@ -4,18 +4,21 @@ cask "ghostty"
 tap "heroku/brew"
 tap "ngrok/ngrok"
 tap "withgraphite/tap"
-tap "homebrew/cask-fonts"
 
+tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
 
 # cli
 brew "rg"
 brew "jq"
 brew "fd"
+brew "bat"
 brew "zellij"
 # github cli
 brew "gh"
 brew "hub"
+# AI 🤖 LLM runner
+cask "ollama"
 
 brew "heroku/brew/heroku"
 brew "withgraphite/tap/graphite"
@@ -56,4 +59,4 @@ cask "orbstack"
 brew "mas"
 
 mas "Amphetamine", id: 937984704
-mas "Microsoft Remote Desktop", id: 1295203466
+# mas "Microsoft Remote Desktop", id: 1295203466
