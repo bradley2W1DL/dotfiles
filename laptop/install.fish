@@ -43,7 +43,9 @@ if ! type -q asdf
   end
 
   # Clone specific asdf version 0.14 # current latest
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+  # git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+  # install this with brew instead (was there a reason not to do this?)
+  brew install asdf
   if ! test -d $TARGET_DIR/.config/fish/completions
     mkdir -p ~/.config/fish/completions
   end

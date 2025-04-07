@@ -13,6 +13,12 @@ brew "rg"
 brew "jq"
 brew "fd"
 brew "bat"
+brew "libyaml" # required for ruby 3.*
+brew "gpg"
+
+# brew "asdf" # installed in install.fish
+# asdf installs ruby, rust, yarn, nodejs/npm
+
 brew "zellij"
 # github cli
 brew "gh"

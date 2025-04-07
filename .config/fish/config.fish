@@ -55,6 +55,7 @@ set -x EDITOR nvim
 set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 
 ## source rust .cargo dir for executables
+source "/Users/bird/.asdf/installs/rust/1.86.0/env.fish"
 fish_add_path ~/.cargo/bin
 
 ## OPENAI_KEY is used by ChatGPT.nvim plugin -- set from 1password
