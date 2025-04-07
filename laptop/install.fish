@@ -63,6 +63,9 @@ if type -q asdf
   asdf plugin add yarn
   echo "  ...asdf plugin add rust"
   asdf plugin add rust
+
+  # install all versions of the above plugins based on .tool-versions file
+  asdf install
 end
 
 # Fish plugins

@@ -19,12 +19,7 @@
 
 config/solargraph_definitions.rb
 
-.tool-versions
 !~/.tool-versions
-
-# Maxwell specific things that I don't want to commit
-config/settings/development.yml
-docker-compose.yml
 
 config/secrets.yml
 .config/op/
