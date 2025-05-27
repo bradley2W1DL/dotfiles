@@ -74,8 +74,10 @@ if ! type -q omf
   curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
   # install "pure" theme and ensure it's set
-  omf install pure
-  omf theme pure
+  # omf install pure
+  # omf theme pure
+
+  omf install
 end
 
 if ! test -e (pwd)/.config/fish/functions/fisher.fish

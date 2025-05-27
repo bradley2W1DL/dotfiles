@@ -1,1 +1,1 @@
-source "/Users/$(whoami)/.deno/env.fish"
+# source "/Users/$(whoami)/.deno/env.fish"

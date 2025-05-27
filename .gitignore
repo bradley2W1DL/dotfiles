@@ -15,6 +15,9 @@
 
 .config/graphite/user_config
 
+.config/github-copilot/*
+.config/exercism
+
 .DS_Store
 
 config/solargraph_definitions.rb

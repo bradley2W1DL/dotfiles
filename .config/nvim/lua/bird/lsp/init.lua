@@ -13,8 +13,6 @@ local servers = mason_lspconfig.get_installed_servers()
 
 -- Loop over all mason-lspconfig installed servers
 for _, server in ipairs(servers) do
-  -- print(server) -- output each server name
-
   local server_settings = {
     on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
@@ -30,6 +28,16 @@ for _, server in ipairs(servers) do
   if server == "rubocop" then
     server_settings.cmd = { "bundle", "exec", "rubocop", "--format", "json", "--force-exclusion", "%filepath" }
     server_settings.root_dir = lspconfig.util.root_pattern("Gemfile", ".git", ".")
+  end
+
+  if server == "ts_ls" then
+    server_settings.root_dir = lspconfig.util.root_pattern({ "package.json", "tsconfig.json" })
+    server_settings.single_file_support = false
+  end
+
+  if server == "denols" then
+    server_settings.root_dir = lspconfig.util.root_pattern({ "deno.json", "deno.jsonc" })
+    server_settings.single_file_support = false
   end
 
   if server == "diagnosticls" then
@@ -48,7 +56,8 @@ for _, server in ipairs(servers) do
       html = {
         options = {
           -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
+          -- this was expanding bem classes in a way I didnt' like: 'main__container' -> "main main_container"
+          ["bem.enabled"] = false,
         }
       }
     }

@@ -49,21 +49,21 @@ M.setup_diagnostics = function()
   })
 end
 
-local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.documentHighlightProvider then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-      ]],
-      false
-    )
-  end
-end
+-- local function lsp_highlight_document(client)
+--   -- Set autocommands conditional on server_capabilities
+--   if client.resolved_capabilities.documentHighlightProvider then
+--     vim.api.nvim_exec(
+--       [[
+--       augroup lsp_document_highlight
+--         autocmd! * <buffer>
+--         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+--         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--       augroup END
+--       ]],
+--       false
+--     )
+--   end
+-- end
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
