@@ -21,13 +21,17 @@ for _, server in ipairs(servers) do
 
   if server == "lua_ls" then
     server_settings.settings = {
-      Lua = { diagnostics = { globals = { "vim" } } }
+      Lua = {
+        diagnostics = { globals = { 'vim' } },
+      }
     }
   end
 
-  if server == "rubocop" then
-    server_settings.cmd = { "bundle", "exec", "rubocop", "--format", "json", "--force-exclusion", "%filepath" }
-    server_settings.root_dir = lspconfig.util.root_pattern("Gemfile", ".git", ".")
+  if server == "ruby_lsp" then
+    server_settings.init_options = {
+      formatter = 'standard',
+      linters = { ruby = 'standard' },
+    }
   end
 
   if server == "ts_ls" then
@@ -40,11 +44,16 @@ for _, server in ipairs(servers) do
     server_settings.single_file_support = false
   end
 
+  -- is this needed at all, if the ruby_lsp handles this?
   if server == "diagnosticls" then
     server_settings.init_options = {
-      linters = { rubocop = require("bird.lsp.settings.rubocop") },
-      filetypes = { ruby = "rubocop" }
+      linters = { 'standard' },
+      filetypes = { ruby = 'standard' },
     }
+    -- server_settings.init_options = {
+    --   linters = { rubocop = require("bird.lsp.settings.rubocop") },
+    --   filetypes = { ruby = "rubocop" }
+    -- }
   end
 
   if server == 'emmet_ls' then
