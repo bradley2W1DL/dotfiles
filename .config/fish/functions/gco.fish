@@ -22,9 +22,11 @@ end
 
 function __gco
     # number
-    set res (string split "-" -- (string trim $argv))
+    # what's the use case for splitting on hyphens??
+    # set res (string split "-" -- (string trim $argv))
     # for branch names with hyphens, use:
-    # set res (string trim $argv)
+    set res (string trim $argv)
+
     set first $res[1]
     set length (count $res)
     set last ""

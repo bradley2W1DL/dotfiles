@@ -12,6 +12,8 @@ handlers.setup_diagnostics()
 local servers = mason_lspconfig.get_installed_servers()
 
 -- Loop over all mason-lspconfig installed servers
+-- If LSP is being started twice, once with defaults and again with configured overrides, exclude
+-- that server from the automatic_enable list in mason-lspconfig file.
 for _, server in ipairs(servers) do
   local server_settings = {
     on_attach = handlers.on_attach,
@@ -29,8 +31,13 @@ for _, server in ipairs(servers) do
 
   if server == "ruby_lsp" then
     server_settings.init_options = {
-      formatter = 'standard',
-      linters = { ruby = 'standard' },
+      formatter = 'standardrb',
+      linters = { 'standardrb' },
+      addonSettings = {
+        ["Ruby LSP Rails"] = {
+          enablePendingMigrationsPrompt = false,
+        }
+      }
     }
   end
 
@@ -44,17 +51,17 @@ for _, server in ipairs(servers) do
     server_settings.single_file_support = false
   end
 
-  -- is this needed at all, if the ruby_lsp handles this?
-  if server == "diagnosticls" then
-    server_settings.init_options = {
-      linters = { 'standard' },
-      filetypes = { ruby = 'standard' },
-    }
+  -- is this needed at all? ruby_lsp should handle all this?
+  -- if server == "diagnosticls" then
+    -- server_settings.init_options = {
+    --   linters = { 'standardrb' },
+    --   filetypes = { ruby = 'standardrb' },
+    -- }
     -- server_settings.init_options = {
     --   linters = { rubocop = require("bird.lsp.settings.rubocop") },
     --   filetypes = { ruby = "rubocop" }
     -- }
-  end
+  -- end
 
   if server == 'emmet_ls' then
     server_settings.capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -80,20 +87,3 @@ for _, server in ipairs(servers) do
 
   lspconfig[server].setup(server_settings)
 end
-
--- Mason install of solargraph isn't playing nicely with asdf.
--- instead, install gem manually (`gem install solargraph`) from appropriate project ruby version
-lspconfig.solargraph.setup({
-  cmd = { os.getenv("HOME") .. "/.asdf/shims/solargraph", "stdio" },
-  root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
-  on_attach = handlers.on_attach,
-  capabilities = handlers.capabilities,
-  settings = {
-    solargraph = {
-      diagnostics = true,
-      formatting = false,
-      autoFormat = false,
-      useBundler = true,
-    }
-  }
-})

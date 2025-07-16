@@ -11,3 +11,4 @@ font-feature = -liga
 font-size = 14
 
 
+keybind = shift+enter=text:\n

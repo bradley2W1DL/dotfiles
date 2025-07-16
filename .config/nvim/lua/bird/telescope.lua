@@ -23,6 +23,7 @@ telescope.setup {
         ["<Up>"] = actions.move_selection_previous,
 
         ["<C-c>"] = actions.close,
+        ["<esc>"] = actions.close,
 
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
@@ -37,7 +38,7 @@ telescope.setup {
 
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+        -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist, -- Ctrl-q interferes with Zellij
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
@@ -53,7 +54,7 @@ telescope.setup {
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         -- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist, -- Ctrl-q is dangerous...
-        ["<C-a>"] = actions.send_to_qflist + actions.open_qflist, -- open all in quickfix
+        ["<M-a>"] = actions.send_to_qflist + actions.open_qflist, -- open all in quickfix
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
         ["j"] = actions.move_selection_next,
@@ -98,7 +99,9 @@ telescope.setup {
       mappings = {
         i = {
           ["<C-f>"] = lga_actions.quote_prompt(), -- "quotes" current prompt
-          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }), -- file path
+          ["<C-u>"] = lga_actions.quote_prompt({ postfix = " --type " }), -- filetype, e.g. --type ruby
+          ["<C-r>"] = lga_actions.quote_prompt({ prefix = "--pcre2 -e " }), -- regex with lookahead / lookbehind
         }
       },
     },

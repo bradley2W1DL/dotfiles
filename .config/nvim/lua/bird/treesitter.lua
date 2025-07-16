@@ -10,6 +10,7 @@ vim.filetype.add({
   extension = {
     astro = "astro",
     slim = "slim",
+    rabl = "ruby",
   }
 })
 
@@ -34,6 +35,7 @@ treesitter_config.setup {
   indent = {
     enable = true,
     -- add any parsers where indentation doesn't seem to work
+    -- ruby get's some weird un-indent behavior
     disable = { "ruby" },
   },
 }

@@ -9,10 +9,10 @@ tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
 
 # cli
-brew "rg"
-brew "jq"
-brew "fd"
-brew "bat"
+brew "rg" # ripgrep
+brew "jq" # cli for json parsing
+brew "fd" # better "find"
+brew "bat" # pretty "cat"
 brew "libyaml" # required for ruby 3.*
 brew "gpg"
 
@@ -29,7 +29,6 @@ cask "ollama"
 brew "heroku/brew/heroku"
 brew "withgraphite/tap/graphite"
 brew "tree"
-brew "ripgrep"
 brew "cbonsai"
 cask "ngrok"
 
@@ -44,14 +43,14 @@ cask "postman"
 cask "flycut"
 
 # meeting status bar
-brew "meetingbar"
+# cask "meetingbar"
 
 # window arrangement manager
 cask "rectangle"
 
 # Password Managers
-cask "1password-cli"
 cask "1password"
+cask "1password-cli"
 
 # Markdown Notepad/Editor
 cask "obsidian"
