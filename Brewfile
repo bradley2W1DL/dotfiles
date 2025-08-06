@@ -32,6 +32,9 @@ brew "tree"
 brew "cbonsai"
 cask "ngrok"
 
+# AI tools
+brew "charmbracelet/tap/crush"
+
 # Browsers
 cask "google-chrome"
 cask "brave-browser"

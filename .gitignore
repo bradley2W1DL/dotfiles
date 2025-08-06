@@ -26,3 +26,5 @@ config/solargraph_definitions.rb
 
 config/secrets.yml
 .config/op/
+
+.crush/
