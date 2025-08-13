@@ -2,6 +2,7 @@
 ^/LICENSE.*
 
 \.git
+\.config/crush/.crush
 
 # stow ignore overrides
 fonts

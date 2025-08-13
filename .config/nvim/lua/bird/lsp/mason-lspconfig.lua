@@ -12,9 +12,9 @@ end
 mason.setup()
 
 mason_lspconfig.setup {
-  ensure_installed = { "lua_ls", "eslint", "ts_ls", "emmet_ls", "ruby_lsp" },
+  ensure_installed = { "lua_ls", "eslint", "ts_ls", "emmet_ls" },
   automatic_enable = {
-    exclude = { "lua_ls", "ruby_lsp", "standardrb" }
+    exclude = { "lua_ls" }
   }
 }
 
