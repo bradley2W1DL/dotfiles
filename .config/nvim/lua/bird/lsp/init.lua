@@ -4,86 +4,31 @@ if not status_ok then
 end
 
 local mason_lspconfig = require("bird.lsp.mason-lspconfig")
-
+local registry = require("bird.lsp.registry")
 local handlers = require("bird.lsp.handlers")
 
 handlers.setup_diagnostics()
 
-local servers = mason_lspconfig.get_installed_servers()
+-- Get all servers (both Mason-managed and manual)
+local all_servers = registry.get_all_servers()
 
--- Loop over all mason-lspconfig installed servers
--- If LSP is being started twice, once with defaults and again with configured overrides, exclude
--- that server from the automatic_enable list in mason-lspconfig file.
-for _, server in ipairs(servers) do
-  local server_settings = {
-    on_attach = handlers.on_attach,
-    capabilities = handlers.capabilities,
-    flags = handlers.lsp_flags,
-  }
-
-  if server == "lua_ls" then
-    server_settings.settings = {
-      Lua = {
-        diagnostics = { globals = { 'vim' } },
-      }
-    }
+-- Setup Mason-managed servers
+local mason_servers = mason_lspconfig.get_installed_servers()
+for _, server in ipairs(mason_servers) do
+  if all_servers[server] then
+    local server_settings = registry.get_server_config(server, handlers)
+    if server_settings then
+      lspconfig[server].setup(server_settings)
+    end
   end
+end
 
-  if server == "ruby_lsp" then
-    server_settings.init_options = {
-      formatter = 'standardrb',
-      linters = { 'standardrb' },
-      addonSettings = {
-        ["Ruby LSP Rails"] = {
-          enablePendingMigrationsPrompt = false,
-        }
-      }
-    }
+-- Setup manually managed servers
+for server_name, config in pairs(all_servers) do
+  if not config.mason_managed then
+    local server_settings = registry.get_server_config(server_name, handlers)
+    if server_settings then
+      lspconfig[server_name].setup(server_settings)
+    end
   end
-
-  if server == "ts_ls" then
-    server_settings.root_dir = lspconfig.util.root_pattern({ "package.json", "tsconfig.json" })
-    server_settings.single_file_support = false
-  end
-
-  if server == "denols" then
-    server_settings.root_dir = lspconfig.util.root_pattern({ "deno.json", "deno.jsonc" })
-    server_settings.single_file_support = false
-  end
-
-  -- is this needed at all? ruby_lsp should handle all this?
-  -- if server == "diagnosticls" then
-    -- server_settings.init_options = {
-    --   linters = { 'standardrb' },
-    --   filetypes = { ruby = 'standardrb' },
-    -- }
-    -- server_settings.init_options = {
-    --   linters = { rubocop = require("bird.lsp.settings.rubocop") },
-    --   filetypes = { ruby = "rubocop" }
-    -- }
-  -- end
-
-  if server == 'emmet_ls' then
-    server_settings.capabilities.textDocument.completion.completionItem.snippetSupport = true
-    server_settings.filetypes = {
-      'astro', 'html', 'typescriptreact', 'javascriptreact', 'css', 'scss', 'sass', 'less'
-    }
-    server_settings.init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          -- this was expanding bem classes in a way I didnt' like: 'main__container' -> "main main_container"
-          ["bem.enabled"] = false,
-        }
-      }
-    }
-  end
-
-  if server == 'graphql' then
-    server_settings.cmd = { "graphql-lsp", "server", "-m", "stream" }
-    server_settings.filetypes = { "graphql", "typescriptreact", "typescript" }
-    -- server_settings.settings = { 'graphql-config.load.legacy' = true }
-  end
-
-  lspconfig[server].setup(server_settings)
 end

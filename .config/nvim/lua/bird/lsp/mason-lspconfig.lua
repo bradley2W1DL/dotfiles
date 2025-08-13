@@ -1,3 +1,5 @@
+local registry = require("bird.lsp.registry")
+
 -- initialize mason / mason-lspconfig
 local mason_status_ok, mason = pcall(require, "mason")
 if not mason_status_ok then
@@ -11,8 +13,11 @@ end
 
 mason.setup()
 
+-- Get Mason-managed servers from registry
+local mason_servers = registry.get_mason_servers()
+
 mason_lspconfig.setup {
-  ensure_installed = { "lua_ls", "eslint", "ts_ls", "emmet_ls" },
+  ensure_installed = mason_servers,
   automatic_enable = {
     exclude = { "lua_ls" }
   }
