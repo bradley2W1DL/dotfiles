@@ -40,6 +40,13 @@ treesitter_config.setup {
   },
 }
 
+-- allows for special toml highlighting for mise.*.toml files
+vim.treesitter.query.add_predicate("is-mise?", function(_,_, bufnr, _)
+  local filepath = vim.api.nvim_buf_get_name(tonumber(bufnr) or 0)
+  local filename = vim.fn.fnamemodify(filepath, ":t")
+  return string.match(filename, ".*mise.*.toml$") ~= nil
+end, { force = true, all = false })
+
 -- Hint: if syntax highlighting is broken try renaming the default neovim parser directory
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

@@ -74,7 +74,7 @@ if ! type -q op
 end
 if type -q op && test -z "$OPENAI_API_KEY"
   echo "setting openai key in env 🤖"
-  set -Ux OPENAI_API_KEY (op read op://Private/openAI_chatGPT.nvim/credential --no-newline)
+  set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end
 
 
