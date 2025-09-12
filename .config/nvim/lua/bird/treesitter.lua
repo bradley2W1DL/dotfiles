@@ -11,6 +11,7 @@ vim.filetype.add({
     astro = "astro",
     slim = "slim",
     rabl = "ruby",
+    erb = "eruby",
   }
 })
 

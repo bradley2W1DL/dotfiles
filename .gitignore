@@ -26,4 +26,5 @@ config/secrets.yml
 .config/op/
 
 .crush/
+CRUSH.md
 .claude/

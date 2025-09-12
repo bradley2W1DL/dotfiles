@@ -5,7 +5,7 @@ return {
     return base_capabilities
   end,
   filetypes = {
-    'astro', 'html', 'typescriptreact', 'javascriptreact', 'css', 'scss', 'sass', 'less'
+    'astro', 'html', 'typescriptreact', 'javascriptreact', 'eruby', 'css', 'scss', 'sass', 'less'
   },
   init_options = {
     html = {

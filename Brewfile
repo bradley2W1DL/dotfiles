@@ -5,7 +5,7 @@ tap "heroku/brew"
 tap "ngrok/ngrok"
 tap "withgraphite/tap"
 
-tap "homebrew/cask-fonts"
+# tap "homebrew/cask-fonts" # deprecated
 cask "font-hack-nerd-font"
 
 # cli
@@ -15,9 +15,6 @@ brew "fd" # better "find"
 brew "bat" # pretty "cat"
 brew "libyaml" # required for ruby 3.*
 brew "gpg"
-
-# brew "asdf" # installed in install.fish
-# asdf installs ruby, rust, yarn, nodejs/npm
 
 brew "zellij"
 # github cli
@@ -33,7 +30,7 @@ brew "cbonsai"
 cask "ngrok"
 
 # AI tools
-brew "charmbracelet/tap/crush"
+cask "charmbracelet/tap/crush"
 
 # Browsers
 cask "google-chrome"

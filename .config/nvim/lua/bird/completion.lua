@@ -12,6 +12,20 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
+-- require("luasnip.config").setup({
+--   ext_opts = {
+--     [luasnip.filetype_extend("eruby")] = { "html" }, -- Extend eruby (erb) snippets with html snippets
+--   }
+-- })
+-- require("luasnip.util.load_snips").load_snips({
+--   paths = { "./lua/bird/snippets" },
+-- })
+luasnip.filetype_extend("eruby", { "html" }) -- Extend eruby (erb) snippets with html snippets
+require("luasnip.loaders.from_lua").lazy_load({
+  paths = { vim.fn.stdpath("config") .. "/lua/bird/snippets" },
+})
+
+
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
