@@ -2,7 +2,7 @@
 # see ghostty.org/docs for more info
 
 # to list all available themes use `ghostty +list-themes`
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 # theme = "Everforest Dark - Hard"
 
 ## 
