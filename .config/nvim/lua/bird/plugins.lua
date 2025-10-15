@@ -146,7 +146,7 @@ return packer.startup(function(use)
       -- requires that $OPENAI_API_KEY env variable is exposed
       require("chatgpt").setup({
         openai_params = {
-          model = "gpt-4o-mini", -- gpt-4o also available but _much_ more expensive
+          model = "gpt-4o-mini",
           max_tokens = 750,
         }
       })
@@ -169,6 +169,8 @@ return packer.startup(function(use)
         -- disabling these to prevent interference with copilot_cmp
         suggestion = { enabled = false },
         panel = { enabled = false },
+        -- must be version > 22.0 of node
+        copilot_node_command = vim.fn.expand("$HOME").."/.local/share/mise/installs/node/23.11.0/bin/node"
       })
     end,
   }
