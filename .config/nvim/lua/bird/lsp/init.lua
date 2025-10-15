@@ -1,7 +1,7 @@
-local status_ok, lspconfig = pcall(require, "lspconfig")
-if not status_ok then
-  return
-end
+-- local status_ok, lspconfig = pcall(require, "lspconfig")
+-- if not status_ok then
+--   return
+-- end
 
 local mason_lspconfig = require("bird.lsp.mason-lspconfig")
 local registry = require("bird.lsp.registry")
@@ -18,7 +18,8 @@ for _, server in ipairs(mason_servers) do
   if all_servers[server] then
     local server_settings = registry.get_server_config(server, handlers)
     if server_settings then
-      lspconfig[server].setup(server_settings)
+      vim.lsp.config(server, server_settings)
+      vim.lsp.enable(server)
     end
   end
 end
@@ -28,7 +29,8 @@ for server_name, config in pairs(all_servers) do
   if not config.mason_managed then
     local server_settings = registry.get_server_config(server_name, handlers)
     if server_settings then
-      lspconfig[server_name].setup(server_settings)
+      vim.lsp.config(server_name, server_settings)
+      vim.lsp.enable(server_name)
     end
   end
 end
