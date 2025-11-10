@@ -1,29 +1,27 @@
 .oh-my-zsh/
 .vim/plugged/*
 
-.config/nvim/lua/user/packer.nvim/
-.config/nvim/plugin/
-.config/configstore/update-notifier-npm.json
-.config/gh/hosts.yml
-.config/gh/state.yml
-.config/iterm2/AppSupport
+dot-config/configstore/update-notifier-npm.json
+dot-config/gh/hosts.yml
+dot-config/gh/state.yml
+dot-config/iterm2/AppSupport
 
-.config/fish/conf.d/secrets.fish
-.config/fish/fish_variables
+dot-config/fish/conf.d/secrets.fish
+dot-config/fish/fish_variables
 
-.config/yarn
+config/secrets.yml
 
-.config/graphite/user_config
+dot-config/yarn
 
-.config/github-copilot/*
-.config/exercism
+dot-config/graphite/user_config
+
+dot-config/github-copilot/*
+dot-config/exercism
+dot-config/op/
 
 .DS_Store
 
 !~/.tool-versions
-
-config/secrets.yml
-.config/op/
 
 .crush/
 CRUSH.md

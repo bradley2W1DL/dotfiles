@@ -43,6 +43,7 @@ fish_add_path /opt/homebrew/bin
 
 ## ALIASES ##
 alias vim=nvim
+alias n=nvim
 abbr -a be 'bundle exec'
 
 # go back two directories
