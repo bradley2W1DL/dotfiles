@@ -15,16 +15,16 @@ This script will
 - homebrew
 - git
 - neovim
-  - ripgrep (dependency for live_grep to work)
 - fish (shell alternative)
   - fisher (fish plugins)
   - breeze (git aliases)
   - oh-my-fish (themes, etc)
-- asdf (package manager)
+- mise (package manager)
   - ruby
   - node
   - yarn
   - rust
+  - bun
 - zellij (terminal multiplexer)
 
 #### Programs

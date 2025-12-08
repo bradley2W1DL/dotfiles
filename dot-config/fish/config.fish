@@ -9,27 +9,7 @@ set fish_color_command normal
 ## THEME COLOR OVERRIDES ##
 set pure_color_primary green
 set pure_color_git_branch pure_color_light
-set pure_color_prompt_on_success white 
-
-##### TODO clean this all up if I end up moving off asdf completely
-## asdf version manager (replaces rbenv, nvm, etc.)
-# source ~/.asdf/asdf.fish
-
-# version 0.16
-# ASDF configuration code
-# if test -z $ASDF_DATA_DIR
-#     set _asdf_shims "$HOME/.asdf/shims"
-# else
-#     set _asdf_shims "$ASDF_DATA_DIR/shims"
-# end
-
-# Do not use fish_add_path (added in Fish 3.2) because it
-# potentially changes the order of items in PATH
-# if not contains $_asdf_shims $PATH
-#     set -gx --prepend PATH $_asdf_shims
-# end
-# set --erase _asdf_shims
-#########
+set pure_color_prompt_on_success white
 
 ## activate Mise - package manager
 if status is-interactive
@@ -77,7 +57,6 @@ if type -q op && test -z "$OPENAI_API_KEY"
   echo "setting openai key in env 🤖"
   set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end
-
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.

@@ -259,7 +259,9 @@ plugins {
 // Default: default
 //
 // theme "everforest-dark"
-theme "ansi"
+// ANSI tries to mimic terminal colors ... it does ok
+// theme "ansi"
+theme "catppuccin-macchiato"
 
 // The name of the default layout to load on startup
 // Default: "default"
