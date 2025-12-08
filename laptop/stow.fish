@@ -32,5 +32,5 @@ end
 
 # stow symlinks all files/directories in $pwd into the home dir
 # (everything not ignored by .stow-local-ignore) file
-stow --target=$HOME --restow .
+stow --target=$HOME --verbose=1 --dotfiles --restow .
 
