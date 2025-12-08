@@ -2,6 +2,18 @@
 ___
 
 #### Setup Script
+
+Using `yadm` (a git wrapper specifically for dotfiles) to manage these files now. ([docs](https://yadm.io/docs/overview))
+
+Install yadm onto your system using the appropriate package manager:
+**Arch/Omarchy**
+`sudo pacaman -S yadm`
+
+**Mac OSX**
+`brew install yadm`
+
+
+--DEPRECATED
 ```bash
 $ ./laptop/setup.sh
 ```
@@ -9,6 +21,7 @@ $ ./laptop/setup.sh
 This script will
 - symlink dotfiles from this repo into $HOME dir (using GNU Stow)
 - install the CLI programs listed below
+--END
 
 #### CLI based programs
 
