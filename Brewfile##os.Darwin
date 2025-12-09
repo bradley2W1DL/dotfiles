@@ -1,7 +1,7 @@
 # terminal emulator
 cask "ghostty"
 
-tap "heroku/brew"
+# tap "heroku/brew"
 tap "ngrok/ngrok"
 tap "withgraphite/tap"
 
@@ -15,15 +15,15 @@ brew "fd" # better "find"
 brew "bat" # pretty "cat"
 brew "libyaml" # required for ruby 3.*
 brew "gpg"
-
 brew "zellij"
+
 # github cli
 brew "gh"
 brew "hub"
 # AI 🤖 LLM runner
 cask "ollama"
 
-brew "heroku/brew/heroku"
+# brew "heroku/brew/heroku"
 brew "withgraphite/tap/graphite"
 brew "tree"
 brew "cbonsai"
@@ -41,9 +41,6 @@ cask "postman"
 
 # clipboard manager
 cask "flycut"
-
-# meeting status bar
-# cask "meetingbar"
 
 # window arrangement manager
 cask "rectangle"
