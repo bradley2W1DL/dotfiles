@@ -81,7 +81,10 @@ FISH_SCRIPT
 fi
 
 if [ "$system_type" = "Linux" ]; then
-  # Install any additional packages
-  sudo pacman -S --needed zellij crush
+  # Install any additional packages we want/need
+  sudo pacman -S --needed zellij ttf-hack-nerd
+
+  # AUR packages
+  # yay -S
 fi
 
