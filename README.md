@@ -6,14 +6,14 @@ ___
 Using `yadm` (a git wrapper specifically for dotfiles) to manage these files now. ([docs](https://yadm.io/docs/overview))
 
 Install yadm onto your system using the appropriate package manager:
+
 **Arch/Omarchy**
 `sudo pacaman -S yadm`
 
 **Mac OSX**
 `brew install yadm`
 
-
---DEPRECATED
+~~DEPRECATED
 ```bash
 $ ./laptop/setup.sh
 ```
@@ -21,7 +21,7 @@ $ ./laptop/setup.sh
 This script will
 - symlink dotfiles from this repo into $HOME dir (using GNU Stow)
 - install the CLI programs listed below
---END
+--END~~
 
 #### CLI based programs
 
@@ -51,5 +51,14 @@ This script will
 - rectangle
 
 ##### TODO
-- get asdf package installs working
-  - I think just need to create a .tool-versions file (not symlinked)
+
+- Get this all working with YADM the ideal flow here would be something like
+
+```sh
+## <install> git yadm
+yadm clone <this_repo_url>
+yadm alt
+yadm bootstrap
+# not sure if the "alt" and "bootstrap" commands will happen automatically or not.
+```
+
