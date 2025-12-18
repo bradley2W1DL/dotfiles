@@ -85,7 +85,7 @@ if [ "$system_type" = "Darwin" ]; then
   # ensure hombrew is in the $PATH
   fish_add_path /opt/homebrew/bin
 
-  $(pwd)/mac_install.fish
+  $(pwd)/.config/yadm/mac_install.fish
 FISH_SCRIPT
 fi
 

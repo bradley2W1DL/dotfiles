@@ -1,7 +1,7 @@
-### Dotfiles
+# Dotfiles
 ___
 
-#### Setup Script
+## Setup Script
 
 Using `yadm` (a git wrapper specifically for dotfiles) to manage these files now. ([docs](https://yadm.io/docs/overview))
 
@@ -14,14 +14,14 @@ sudo pacman -S yadm
 
 **Mac OSX**
 ```sh
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh && brew install git yadm
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install git yadm
 ```
 
 2. _ensure you have the correct RSA keys in place_
 3. Then run `yadm clone git@github.com:bradley2W1DL/dotfiles.git`
   * you should be prompted to run the bootstrap command at this point
 
-#### CLI based programs
+### CLI based apps
 
 - homebrew
 - git
@@ -38,7 +38,8 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh &&
   - bun
 - zellij (terminal multiplexer)
 
-#### Programs
+### Applications
+
 - Ghostty
 - obsidian
 - spotify
@@ -48,12 +49,7 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh &&
 - amphetamine
 - rectangle
 
-##### TODO
+## TODO
 
-- Get this all working with YADM the ideal flow here would be something like
-
-```sh
-## <install> git yadm
-yadm clone <this_repo_url>
-```
-
+#### Mac
+- Get basic OS settings copied over.  Thinks like scroll direction, click settings, etc.
