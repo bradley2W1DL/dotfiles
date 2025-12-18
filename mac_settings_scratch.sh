@@ -19,3 +19,7 @@ defaults write "com.apple.Spotlight" "orderedItems" '({enabled=1;name=APPLICATIO
 defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 1
 defaults write "Apple Global Domain" com.apple.swipescrolldirection -bool false
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+
+# ******* Settings > Finder *******
+defaults write "com.apple.finder" "FXPreferredViewStyle" 'clmv'
+defaults write "com.apple.finder" "SearchRecentsSavedViewStyle" 'clmv'
