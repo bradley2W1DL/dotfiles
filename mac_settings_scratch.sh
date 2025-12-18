@@ -23,3 +23,8 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 # ******* Settings > Finder *******
 defaults write "com.apple.finder" "FXPreferredViewStyle" 'clmv'
 defaults write "com.apple.finder" "SearchRecentsSavedViewStyle" 'clmv'
+defaults write com.apple.finder ShowRecentTags -bool false
+# Don't create some .DS_Store files
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+killall Finder
