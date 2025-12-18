@@ -14,14 +14,7 @@
 # run brew with local Brewfile
 brew bundle -v
 
-echo "✅ make sure to install 1Password desktop app and sign in."
-
-if ! type -q nvim
-    brew install neovim
-
-    # intall all configured nvim packages (./config/nvim/usr)
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c PackerSync
-end
+echo "✅ Brewfile ran successfully"
 
 # Fish plugins
 if ! type -q omf

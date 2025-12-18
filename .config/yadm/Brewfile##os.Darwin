@@ -15,6 +15,8 @@ brew "fd" # better "find"
 brew "bat" # pretty "cat"
 brew "libyaml" # required for ruby 3.*
 brew "gpg"
+
+brew "neovim"
 brew "zellij"
 
 # github cli

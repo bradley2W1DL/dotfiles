@@ -70,13 +70,17 @@ fi
 # make fish the default login shell
 sudo chsh -s $FISH_BIN $CURRENT_USER
 
+# Mise (package manager)
+# Installs mise and adds activation to ~/.config/fish/config.fish
+curl https://mise.run/fish | sh
+
 if [ "$system_type" = "Darwin" ]; then
   # execute remaining setup scripts in fish
   fish <<FISH_SCRIPT
   # ensure hombrew is in the $PATH
   fish_add_path /opt/homebrew/bin
 
-  $(pwd)/laptop/install.fish
+  $(pwd)/mac_install.fish
 FISH_SCRIPT
 fi
 
