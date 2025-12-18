@@ -12,7 +12,7 @@
 # xcode-select
 
 # run brew with local Brewfile
-brew bundle -v
+brew bundle -v --file=./Brewfile
 
 echo "✅ Brewfile ran successfully"
 

@@ -76,8 +76,11 @@ fi
 sudo chsh -s $FISH_BIN $CURRENT_USER
 
 # Mise (package manager)
-# Installs mise and adds activation to ~/.config/fish/config.fish
-curl https://mise.run/fish | sh
+if ! command -v mise &> /dev/null; then
+  # Installs mise and adds activation to ~/.config/fish/config.fish
+  curl https://mise.run/fish | sh
+  source "~/.config/fish/config.fish"
+fi
 
 if [ "$system_type" = "Darwin" ]; then
   # execute remaining setup scripts in fish
