@@ -5,23 +5,21 @@ ___
 
 Using `yadm` (a git wrapper specifically for dotfiles) to manage these files now. ([docs](https://yadm.io/docs/overview))
 
-Install yadm onto your system using the appropriate package manager:
+1. Install yadm onto your system using the appropriate package manager:
 
 **Arch/Omarchy**
-`sudo pacaman -S yadm`
-
-**Mac OSX**
-`brew install yadm`
-
-~~DEPRECATED
-```bash
-$ ./laptop/setup.sh
+```sh
+sudo pacman -S yadm
 ```
 
-This script will
-- symlink dotfiles from this repo into $HOME dir (using GNU Stow)
-- install the CLI programs listed below
---END~~
+**Mac OSX**
+```sh
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh && brew install git yadm
+```
+
+2. _ensure you have the correct RSA keys in place_
+3. Then run `yadm clone git@github.com:bradley2W1DL/dotfiles.git`
+  * you should be prompted to run the bootstrap command at this point
 
 #### CLI based programs
 
@@ -57,8 +55,5 @@ This script will
 ```sh
 ## <install> git yadm
 yadm clone <this_repo_url>
-yadm alt
-yadm bootstrap
-# not sure if the "alt" and "bootstrap" commands will happen automatically or not.
 ```
 

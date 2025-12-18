@@ -6,6 +6,11 @@
 #
 ################################
 
+# symlink YADM alternate files into place
+if command -v yadm >/dev/null 2>&1; then
+  yadm alt
+fi
+
 # Step 0: get mad permissions
 export CURRENT_USER=$(whoami)
 echo "Let's setup $CURRENT_USER"
@@ -91,4 +96,8 @@ if [ "$system_type" = "Linux" ]; then
   # AUR packages
   # yay -S
 fi
+
+cd "$HOME"
+echo " 󰊢 init LazyVim submodule"
+yadm submodule update --recursive --init
 
