@@ -13,7 +13,7 @@ set pure_color_prompt_on_success white
 
 ## activate Mise - package manager
 if status is-interactive
-    mise activate fish | source
+    mise activate fish | source # added by https://mise.run/fish
 else
     mise activate fish --shims | source
 end
@@ -55,7 +55,7 @@ set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 if ! type -q op
     echo "⚠️  unable to set OPENAI_KEY var becuase 1password cli plugin not installed!"
 end
-if type -q op && test -z "$OPENAI_API_KEY"
+if type -q op && test -z "$OPENAI_API_KEY" # todo add condition here with short-circuit ENV var to prevent this during setup
     echo "setting openai key in env 🤖"
     set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end
