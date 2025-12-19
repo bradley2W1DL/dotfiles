@@ -32,7 +32,7 @@ brew "cbonsai"
 cask "ngrok"
 
 # AI tools
-cask "charmbracelet/tap/crush"
+# cask "charmbracelet/tap/crush"
 
 # Browsers
 cask "google-chrome"
@@ -47,7 +47,7 @@ cask "flycut"
 # window arrangement manager
 cask "rectangle"
 
-# Password Managers
+# Password Manager
 cask "1password"
 cask "1password-cli"
 

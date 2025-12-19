@@ -12,9 +12,13 @@
 # xcode-select
 
 # run brew with local Brewfile
-brew bundle -v --file=./Brewfile
+brew bundle -v --file=$HOME/.config/yadm/Brewfile
 
 echo "✅ Brewfile ran successfully"
+
+osascript -e 'display dialog "Open and login to 1Password, then enable the CLI in Developer section" buttons {"Done"} default button "Done" with title "Action Required"'
+
+echo "1Password login complete"
 
 # Fish plugins
 if ! type -q omf
@@ -47,11 +51,12 @@ osascript ./loginItems.applescript
 defaults write "com.apple.controlcenter" "NSStatusItem Visible ScreenMirroring" -bool false
 defaults delete "com.apple.Spotlight" "NSStatusItem Visible Item-0"
 
-# ******* Settings > Dock *******
-defaults write "com.apple.dock" "magnification" -bool false
-defaults write "com.apple.dock" "tilesize" -int 37
-defaults write "com.apple.dock" "autohide" -bool true
-defaults write "com.apple.dock" "minimize-to-application" -bool true
+# ******* Settings > Desktop & Dock *******
+defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock tilesize -int 37
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock "minimize-to-application" -bool true
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
 killall Dock
 
 # ******* Settings > Spotlight *******
@@ -71,4 +76,15 @@ defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 killall Finder
+
+# **** Allows apps to be installed from Anywhere ***
+sudo spctl --master-disable
+
+osascript -e 'display dialog "Open Privacy & Security settings and allows apps from anywhere" buttons {"Done"} default button "Done" with title "Action Required"'
+
+osascript -e 'tell application "System Settings" to reveal pane id "com.apple.Privacy-Settings.extension"'
+
+echo "✅ MacOS configuration complete 💾 Restarting now..."
+
+osascript -e 'tell app "System Events" to restart'
 
