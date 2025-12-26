@@ -53,7 +53,7 @@ if ! type -q op
 end
 if type -q op && test -z "$OPENAI_API_KEY" # todo add condition here with short-circuit ENV var to prevent this during setup
   echo "setting openai key in env 🤖"
-  set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
+  # set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end
 
 # Added by OrbStack: command-line tools and integration
