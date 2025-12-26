@@ -1,23 +1,19 @@
 .oh-my-zsh/
-.vim/plugged/*
 
-dot-config/configstore/update-notifier-npm.json
-dot-config/gh/hosts.yml
-dot-config/gh/state.yml
-dot-config/iterm2/AppSupport
+.config/configstore/update-notifier-npm.json
+.config/gh/hosts.yml
+.config/gh/state.yml
 
-dot-config/fish/conf.d/secrets.fish
-dot-config/fish/fish_variables
+.config/fish/conf.d/secrets.fish
+.config/fish/fish_variables
 
-config/secrets.yml
+.config/yarn
 
-dot-config/yarn
+.config/graphite/user_config
 
-dot-config/graphite/user_config
-
-dot-config/github-copilot/*
-dot-config/exercism
-dot-config/op/
+.config/github-copilot/*
+.config/exercism
+.config/op/
 
 .DS_Store
 

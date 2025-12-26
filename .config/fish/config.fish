@@ -1,5 +1,5 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+  # Commands to run in interactive sessions can go here
 end
 
 ## DEFAULT FISH COLOR OVERRIDES ##
@@ -13,13 +13,15 @@ set pure_color_prompt_on_success white
 
 ## activate Mise - package manager
 if status is-interactive
-  mise activate fish | source
+  mise activate fish | source # added by https://mise.run/fish
 else
   mise activate fish --shims | source
 end
 
 ## add homebrew to path
 fish_add_path /opt/homebrew/bin
+
+fish_add_path ~/.local/bin
 
 ## ALIASES ##
 alias vim=nvim
@@ -45,15 +47,11 @@ set -x EDITOR nvim
 ## OSX + rails + puma 6.1+ support
 set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 
-## source rust .cargo dir for executables
-# source "/Users/$(whoami)/.asdf/installs/rust/1.86.0/env.fish"
-# fish_add_path ~/.cargo/bin
-
 ## OPENAI_KEY is used by ChatGPT.nvim plugin -- set from 1password
 if ! type -q op
   echo "⚠️  unable to set OPENAI_KEY var becuase 1password cli plugin not installed!"
 end
-if type -q op && test -z "$OPENAI_API_KEY"
+if type -q op && test -z "$OPENAI_API_KEY" # todo add condition here with short-circuit ENV var to prevent this during setup
   echo "setting openai key in env 🤖"
   set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end

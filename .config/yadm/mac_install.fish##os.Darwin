@@ -1,0 +1,90 @@
+#!/opt/homebrew/bin/fish
+
+## Scripts to ensure the following programs are installed:
+# nvim
+# rg
+# jq
+# 1Password cli (op)
+# fish (already be installed at this point)
+#  -> oh-my-fish (themes)
+#  -> fisher (plugin management)
+#  -> breeze (scm-breeze-ish)
+# xcode-select
+
+# run brew with local Brewfile
+brew bundle -v --file=$HOME/.config/yadm/Brewfile
+
+echo "✅ Brewfile ran successfully"
+
+osascript -e 'display dialog "Open and login to 1Password, then enable the CLI in Developer section" buttons {"Done"} default button "Done" with title "Action Required"'
+
+echo "1Password login complete"
+
+# Fish plugins
+if ! type -q omf
+    echo 'installing oh-my-fish...'
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
+    # install "pure" theme and ensure it's set
+    omf install
+end
+
+if ! test -e (pwd)/.config/fish/functions/fisher.fish
+    echo 'installing Fisher plugin manager...'
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+end
+
+if ! test -e (pwd)/.config/fish/functions/breeze.fish
+    echo 'installing breeze for git shortcuts...'
+    fisher install shinriyo/breeze
+end
+
+if ! type -q xcode-select
+    echo "installing xcode-select dev tools (this is very slow 🐢)"
+    xcode-select -install
+end
+
+# ******* Setup Login Items *******
+osascript ./loginItems.applescript
+
+# ******* Settings > MenuBar *******
+defaults write "com.apple.controlcenter" "NSStatusItem Visible ScreenMirroring" -bool false
+defaults delete "com.apple.Spotlight" "NSStatusItem Visible Item-0"
+
+# ******* Settings > Desktop & Dock *******
+defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock tilesize -int 37
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock "minimize-to-application" -bool true
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+killall Dock
+
+# ******* Settings > Spotlight *******
+defaults write "com.apple.assistant.support" "Search Queries Data Sharing Status" -int 2
+defaults write "com.apple.Spotlight" "orderedItems" '({enabled=1;name=APPLICATIONS;},{enabled=1;name="MENU_EXPRESSION";},{enabled=1;name=CONTACT;},{enabled=1;name="MENU_CONVERSION";},{enabled=1;name="MENU_DEFINITION";},{enabled=1;name=DOCUMENTS;},{enabled=0;name="EVENT_TODO";},{enabled=1;name=DIRECTORIES;},{enabled=0;name=FONTS;},{enabled=1;name=IMAGES;},{enabled=0;name=MESSAGES;},{enabled=1;name=MOVIES;},{enabled=1;name=MUSIC;},{enabled=1;name="MENU_OTHER";},{enabled=1;name=PDF;},{enabled=0;name=PRESENTATIONS;},{enabled=1;name="MENU_SPOTLIGHT_SUGGESTIONS";},{enabled=1;name=SPREADSHEETS;},{enabled=1;name="SYSTEM_PREFS";},{enabled=0;name=TIPS;},{enabled=1;name=BOOKMARKS;},)'
+
+# ******* Settings > Trackpad & Mouse *******
+defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 1
+defaults write "Apple Global Domain" com.apple.swipescrolldirection -bool false
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+
+# ******* Settings > Finder *******
+defaults write "com.apple.finder" "FXPreferredViewStyle" 'clmv'
+defaults write "com.apple.finder" "SearchRecentsSavedViewStyle" 'clmv'
+defaults write com.apple.finder ShowRecentTags -bool false
+# Don't create some .DS_Store files
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+killall Finder
+
+# **** Allows apps to be installed from Anywhere ***
+sudo spctl --master-disable
+
+osascript -e 'display dialog "Open Privacy & Security settings and allows apps from anywhere" buttons {"Done"} default button "Done" with title "Action Required"'
+
+osascript -e 'tell application "System Settings" to reveal pane id "com.apple.Privacy-Settings.extension"'
+
+echo "✅ MacOS configuration complete 💾 Restarting now..."
+
+osascript -e 'tell app "System Events" to restart'
+

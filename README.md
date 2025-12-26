@@ -1,16 +1,27 @@
-### Dotfiles
+# Dotfiles
 ___
 
-#### Setup Script
-```bash
-$ ./laptop/setup.sh
+## Setup Script
+
+Using `yadm` (a git wrapper specifically for dotfiles) to manage these files now. ([docs](https://yadm.io/docs/overview))
+
+1. Install yadm onto your system using the appropriate package manager:
+
+**Arch/Omarchy**
+```sh
+sudo pacman -S yadm
 ```
 
-This script will
-- symlink dotfiles from this repo into $HOME dir (using GNU Stow)
-- install the CLI programs listed below
+**Mac OSX**
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install git yadm
+```
 
-#### CLI based programs
+2. _ensure you have the correct RSA keys in place_
+3. Then run `yadm clone git@github.com:bradley2W1DL/dotfiles.git`
+  * you should be prompted to run the bootstrap command at this point
+
+### CLI based apps
 
 - homebrew
 - git
@@ -27,7 +38,8 @@ This script will
   - bun
 - zellij (terminal multiplexer)
 
-#### Programs
+### Applications
+
 - Ghostty
 - obsidian
 - spotify
@@ -37,6 +49,7 @@ This script will
 - amphetamine
 - rectangle
 
-##### TODO
-- get asdf package installs working
-  - I think just need to create a .tool-versions file (not symlinked)
+## TODO
+
+#### Mac
+- Get basic OS settings copied over.  Thinks like scroll direction, click settings, etc.
