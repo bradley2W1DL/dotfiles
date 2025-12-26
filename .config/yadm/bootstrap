@@ -82,6 +82,12 @@ if ! command -v mise &> /dev/null; then
   source "~/.config/fish/config.fish"
 fi
 
+echo 'installing oh-my-fish...'
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
+# install "pure" theme and ensure it's set
+omf install
+
 if [ "$system_type" = "Darwin" ]; then
   # execute remaining setup scripts in fish
   fish <<FISH_SCRIPT
@@ -97,7 +103,7 @@ if [ "$system_type" = "Linux" ]; then
   sudo pacman -S --needed zellij ttf-hack-nerd
 
   # AUR packages
-  # yay -S
+  # yay -S cbonsai
 fi
 
 cd "$HOME"

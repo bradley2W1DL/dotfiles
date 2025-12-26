@@ -21,27 +21,28 @@ osascript -e 'display dialog "Open and login to 1Password, then enable the CLI i
 echo "1Password login complete"
 
 # Fish plugins
-if ! type -q omf
-    echo 'installing oh-my-fish...'
-    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-
-    # install "pure" theme and ensure it's set
-    omf install
-end
+# moved up to bootstrap file
+# if ! type -q omf
+#   echo 'installing oh-my-fish...'
+#   curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+#
+#   # install "pure" theme and ensure it's set
+#   omf install
+# end
 
 if ! test -e (pwd)/.config/fish/functions/fisher.fish
-    echo 'installing Fisher plugin manager...'
-    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+  echo 'installing Fisher plugin manager...'
+  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
 
 if ! test -e (pwd)/.config/fish/functions/breeze.fish
-    echo 'installing breeze for git shortcuts...'
-    fisher install shinriyo/breeze
+  echo 'installing breeze for git shortcuts...'
+  fisher install shinriyo/breeze
 end
 
 if ! type -q xcode-select
-    echo "installing xcode-select dev tools (this is very slow 🐢)"
-    xcode-select -install
+  echo "installing xcode-select dev tools (this is very slow 🐢)"
+  xcode-select -install
 end
 
 # ******* Setup Login Items *******
