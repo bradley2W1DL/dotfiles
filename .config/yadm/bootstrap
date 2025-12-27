@@ -103,7 +103,7 @@ if [ "$system_type" = "Linux" ]; then
   sudo pacman -S --needed zellij ttf-hack-nerd
 
   # AUR packages
-  # yay -S cbonsai
+  yay -Sy --needed --noconfirm cbonsai brave-bin
 fi
 
 cd "$HOME"
