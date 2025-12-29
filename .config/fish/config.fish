@@ -41,22 +41,21 @@ function set-upstream
   git branch --set-upstream-to=origin/(git branch --show-current) (git branch --show-current)
 end
 
-set -x CONSOLE_USER bradley@himaxwell.com
 set -x EDITOR nvim
 
 ## OSX + rails + puma 6.1+ support
 set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 
-## OPENAI_KEY is used by ChatGPT.nvim plugin -- set from 1password
-if ! type -q op
-  echo "⚠️  unable to set OPENAI_KEY var becuase 1password cli plugin not installed!"
-end
-if type -q op && test -z "$OPENAI_API_KEY" # todo add condition here with short-circuit ENV var to prevent this during setup
-  echo "setting openai key in env 🤖"
-  # set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
+if not type -q op
+  echo "⚠️  unable to set OPENAI_API_KEY var becuase 1password cli plugin not installed!"
 end
 
-# Added by OrbStack: command-line tools and integration
+# don't know what the hell is going on with this but...
+set -e --global OPENAI_API_KEY
+if type -q op && not set -q OPENAI_API_KEY # todo add condition here with short-circuit ENV var to prevent this during setup
+  echo "setting openai key in env 🤖"
+  set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
+end
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
