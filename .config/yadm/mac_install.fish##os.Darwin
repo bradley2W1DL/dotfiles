@@ -78,14 +78,12 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 killall Finder
 
-# **** Allows apps to be installed from Anywhere ***
-sudo spctl --master-disable
-
 osascript -e 'display dialog "Open Privacy & Security settings and allows apps from anywhere" buttons {"Done"} default button "Done" with title "Action Required"'
 
 osascript -e 'tell application "System Settings" to reveal pane id "com.apple.Privacy-Settings.extension"'
 
-echo "✅ MacOS configuration complete 💾 Restarting now..."
+echo "✅ MacOS configuration complete 💾 Restart you machine for all settings to take affect"
 
-osascript -e 'tell app "System Events" to restart'
+# this caused some issues.  Just prompt user instead
+# osascript -e 'tell app "System Events" to restart'
 

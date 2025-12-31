@@ -1,0 +1,10 @@
+theme = Catppuccin Macchiato
+
+# Font
+font-family = "Hack Nerd Font Mono"
+# font-style = Regular
+font-size = 14
+
+# No ligatures
+font-feature = -liga, -dliga, -calt
+
