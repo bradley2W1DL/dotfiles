@@ -41,6 +41,15 @@ function set-upstream
   git branch --set-upstream-to=origin/(git branch --show-current) (git branch --show-current)
 end
 
+# Ran into an OSX issue where Nvim would crash because of unsigned plugin packages
+# This can be fixed by manually re-signing these packages:
+function nvim-resign-plugins
+  echo "Re-signing Neovim plugins..."
+  find ~/.local/share/nvim ~/.config/nvim \( -name "*.so" -or -name "*.dylib" \) \
+    -exec codesign --force --deep --sign - {} \; 2>/dev/null
+  echo "✓ Done!"
+end
+
 set -x EDITOR nvim
 
 ## OSX + rails + puma 6.1+ support
