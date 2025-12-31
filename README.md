@@ -52,4 +52,19 @@ sudo pacman -S yadm
 ## TODO
 
 #### Mac
-- Get basic OS settings copied over.  Thinks like scroll direction, click settings, etc.
+- Copy basic OS settings.
+  - scroll direction and click settings
+  - Dock settings
+  - Launch applications
+
+#### Note on install
+
+This project uses a submodule for the nvim config.  It's a fork of the LazyVim starter repo that has been modified to my liking.
+
+Because of this you should clone the project with the `--recurse-submodules` flag (`git clone --recurse-submodules <URL>`)
+
+Alternatively, after cloning this repo you'll need to run two commands to initialize this submodule:
+`git submodule init` to initialize the local config file
+`git submodule update` to fetch all the data from the submodule project into the dot-config/nvim project directory.
+
+For more info on git submodules checkout the [docs](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
