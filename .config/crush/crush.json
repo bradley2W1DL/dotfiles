@@ -19,14 +19,15 @@
     "code-index": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["code-index-mcp"]
+      "args": [
+        "code-index-mcp"
+      ]
     },
     "deepwiki": {
       "type": "http",
       "url": "https://mcp.deepwiki.com/mcp"
     }
   },
-
   "providers": {
     "ollama": {
       "name": "Ollama",
@@ -37,7 +38,8 @@
           "name": "Qwen 3 8b",
           "id": "qwen3:8b",
           "context_window": 256000,
-          "default_max_tokens": 20000
+          "default_max_tokens": 20000,
+          "can_reason": true
         },
         {
           "name": "Llama 3.2",

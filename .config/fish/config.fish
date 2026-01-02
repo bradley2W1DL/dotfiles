@@ -59,12 +59,20 @@ if not type -q op
   echo "⚠️  unable to set OPENAI_API_KEY var becuase 1password cli plugin not installed!"
 end
 
-# don't know what the hell is going on with this but...
+# don't know what the hell is going on with this but need to delete the global env var for the "universal" var to be recognized
+# OpenAI key
 set -e --global OPENAI_API_KEY
 if type -q op && not set -q OPENAI_API_KEY # todo add condition here with short-circuit ENV var to prevent this during setup
   echo "setting openai key in env 🤖"
   set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end
+
+# OpenRouter AI model provider key
+if type -q op && not set -q OPENROUTER_API_KEY
+  echo "setting OpenRouter key in env 🤖"
+  set -Ux OPENROUTER_API_KEY (op --account my.1password.com read op://Private/OpenRouter_ai_api_key/credential --no-newline)
+end
+
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
