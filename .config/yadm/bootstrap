@@ -100,10 +100,13 @@ fi
 
 if [ "$system_type" = "Linux" ]; then
   # Install any additional packages we want/need
-  sudo pacman -S --needed zellij ttf-hack-nerd
+  sudo pacman -S --needed zellij ttf-hack-nerd yazi
+
+  # Omarchy -> Yazi theme sync
+  curl -fsSL https://raw.githubusercontent.com/joaofelipegalvao/omarchy-yazi/main/scripts/omarchy-yazi-install.sh | bash
 
   # AUR packages
-  yay -Sy --needed --noconfirm cbonsai brave-bin
+  yay -Sy --needed --noconfirm cbonsai brave-bin dragon-drop
 fi
 
 cd "$HOME"

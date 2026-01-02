@@ -36,3 +36,6 @@ unbind = SUPER SHIFT ALT, X
 unbind = SUPER SHIFT, G
 bindd = SUPER SHIFT, G, Github, exec, omarchy-launch-or-focus-webapp Github "https://github.com"
 bindd = SUPER SHIFT, S, Signal,  exec, omarchy-launch-or-focus signal "uwsm app -- signal-desktop"
+
+unbind = SUPER SHIFT, F
+bindd = SUPER SHIFT, F, File Manager, exec, omarchy-launch-tui yazi
