@@ -1,0 +1,16 @@
+# YADM Alt files
+
+Alt files docs: https://yadm.io/docs/alternates
+___
+
+Any files places in this directory will be symlinked to their relative path as if `pwd` was the $HOME dir.
+
+Here I'm specifically using it to symlink files into the `nvim` submodule.
+
+Example: "$pwd/.config/nvim/lua/plugins/theme.lua#os.Darwin" will be symlinked to "~/.config/nvim/lua/plugins/theme.lua"
+on MacOS machines
+
+___
+
+_Note_: This filename specifically has negative conditions that will prevent it from being symlinked out of here on either configured OS.
+
