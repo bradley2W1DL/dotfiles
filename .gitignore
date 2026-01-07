@@ -22,3 +22,4 @@
 .crush/
 CRUSH.md
 .claude/
+.config/yazi/theme.toml*

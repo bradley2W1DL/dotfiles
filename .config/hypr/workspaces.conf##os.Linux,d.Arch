@@ -1,10 +1,11 @@
 # Apply workspace rules
 # https://wiki.hypr.land/Configuring/Workspace-Rules
+# hyprctl monitors all
 
 # bind specific workspaces to a monitor
-workspace = 1, monitor:DP-3, default:true
-workspace = 2, monitor:DP-3
-# 1 & 2 on big monitor 3+ on laptop display (what happens to this when big monitor is unplugged)
+# 1 & 2 on HP 4K monitor (home office)
+workspace = 1, monitor:desc:HP Inc. HP V28 4K 0x01010101, default:true
+workspace = 2, monitor:desc:HP Inc. HP V28 4K 0x01010101
 
 workspace = 3, monitor:eDP-1, default:true
 workspace = 4, monitor:eDP-1
