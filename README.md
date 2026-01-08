@@ -59,7 +59,7 @@ sudo pacman -S yadm
 
 #### Note on install
 
-This project uses a submodule for the nvim config.  It's a fork of the LazyVim starter repo that has been modified to my liking.
+This project uses a submodule for the nvim config.  It's a [fork](https://github.com/bradley2W1DL/LazyVim_starter) of the LazyVim starter repo, customized a bit.
 
 Because of this you should clone the project with the `--recurse-submodules` flag (`git clone --recurse-submodules <URL>`)
 
