@@ -6,6 +6,8 @@ font-family = "Hack Nerd Font Mono"
 font-style = Regular
 font-size = 9
 
+font-feature = -liga, -dliga, -calt
+
 # Window
 window-padding-x = 2
 window-padding-y = 2
