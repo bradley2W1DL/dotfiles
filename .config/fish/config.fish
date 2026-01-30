@@ -11,6 +11,8 @@ set pure_color_primary green
 set pure_color_git_branch pure_color_light
 set pure_color_prompt_on_success white
 
+set fish_greeting
+
 ## activate Mise - package manager
 if status is-interactive
   mise activate fish | source # added by https://mise.run/fish
