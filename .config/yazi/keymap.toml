@@ -5,6 +5,6 @@
 [mgr]
 
 prepend_keymap = [
-  # { on = "<C-n>", run = "shell -- ripdrag %s1 -x 2>/dev/null &", desc = "Drag and drop" }
-  { on   = [ "d", "r" ], run  = "plugin dragon", desc = "Drag file(s) with dragon" },
+  { on = "<C-n>", run = "shell -- ripdrag %s1 -x 2>/dev/null &", desc = "Drag and drop" }
+  # { on   = [ "d", "r" ], run  = "plugin dragon", desc = "Drag file(s) with dragon" },
 ]
