@@ -106,7 +106,7 @@ if [ "$system_type" = "Linux" ]; then
   curl -fsSL https://raw.githubusercontent.com/joaofelipegalvao/omarchy-yazi/main/scripts/omarchy-yazi-install.sh | bash
 
   # AUR packages
-  yay -Sy --needed --noconfirm cbonsai brave-bin dragon-drop
+  yay -Sy --needed --noconfirm cbonsai brave-bin ripdrag bruno graphite-cli crush
 fi
 
 cd "$HOME"
