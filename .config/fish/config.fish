@@ -66,10 +66,12 @@ end
 set -e --global OPENAI_API_KEY
 if type -q op && not set -q OPENAI_API_KEY # todo add condition here with short-circuit ENV var to prevent this during setup
   echo "setting openai key in env 🤖"
+  # really only want to set this if the `op` command succeeds
   set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
 end
 
 # OpenRouter AI model provider key
+set -e --global OPENROUTER_API_KEY
 if type -q op && not set -q OPENROUTER_API_KEY
   echo "setting OpenRouter key in env 🤖"
   set -Ux OPENROUTER_API_KEY (op --account my.1password.com read op://Private/OpenRouter_ai_api_key/credential --no-newline)
