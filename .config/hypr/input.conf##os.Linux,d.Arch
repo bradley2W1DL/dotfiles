@@ -16,6 +16,9 @@ input {
   # Increase sensitity for mouse/trackpack (default: 0)
   # sensitivity = 0.35
 
+  # Focus follows the mouse only when crossing window boundaries
+  follow_mouse = 2
+
   touchpad {
     # natural_scroll = true
     # Use natural (inverse) scrolling
