@@ -44,6 +44,14 @@ abbr -a runsv 'python -m SimpleHTTPServer'
 abbr -a gbr 'gh browse' # github cli tool
 abbr -a gcb 'git checkout -b'
 
+# YADM aliases
+abbr -a yas 'yadm status'
+abbr -a yad 'yadm diff'
+abbr -a yaa 'yadm add'
+abbr -a yac 'yadm commit'
+abbr -a yafo 'yadm fetch origin'
+abbr -a yab 'yadm rebase'
+abbr -a yabi 'yadm rebase -i'
 
 function _breeze_uninstall -e breeze_uninstall
     abbr -e cdgtop
