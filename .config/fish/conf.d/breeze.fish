@@ -52,6 +52,7 @@ abbr -a yac 'yadm commit'
 abbr -a yafo 'yadm fetch origin'
 abbr -a yab 'yadm rebase'
 abbr -a yabi 'yadm rebase -i'
+abbr -a yapl 'yadm pull --recurse-submodules'
 
 function _breeze_uninstall -e breeze_uninstall
     abbr -e cdgtop
