@@ -43,6 +43,7 @@ abbr -a runsv 'python -m SimpleHTTPServer'
 # Missing commands from breeze
 abbr -a gbr 'gh browse' # github cli tool
 abbr -a gcb 'git checkout -b'
+abbr -a gfo 'git fetch origin'
 
 # YADM aliases
 abbr -a yas 'yadm status'
