@@ -24,6 +24,7 @@ brew "gh"
 brew "hub"
 # AI 🤖 LLM runner
 cask "ollama"
+brew "lazygit"
 
 # brew "heroku/brew/heroku"
 brew "withgraphite/tap/graphite"

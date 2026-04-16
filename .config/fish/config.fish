@@ -28,6 +28,7 @@ fish_add_path ~/.local/bin
 ## ALIASES ##
 alias vim=nvim
 alias n=nvim
+alias lg=lazygit
 abbr -a be 'bundle exec'
 
 # go back two directories
