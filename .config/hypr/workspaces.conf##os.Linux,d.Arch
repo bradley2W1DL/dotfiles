@@ -4,8 +4,8 @@
 
 # bind specific workspaces to a monitor
 # 1 & 2 on HP 4K monitor (home office)
-workspace = 1, monitor:desc:HP Inc. HP V28 4K 0x01010101, default:true
-workspace = 2, monitor:desc:HP Inc. HP V28 4K 0x01010101
+workspace = 1, monitor:desc:HP Inc. HP V28 4K, default:true
+workspace = 2, monitor:desc:HP Inc. HP V28 4K
 
 workspace = 3, monitor:eDP-1, default:true
 workspace = 4, monitor:eDP-1
