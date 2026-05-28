@@ -5,6 +5,8 @@
   default = current
 [pull]
   rebase = true
+[rebase]
+  updateRefs = true
 [init]
   defaultBranch = main 
 [core]
@@ -16,3 +18,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[merge]
+	tool = nvimdiff

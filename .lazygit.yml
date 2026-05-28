@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+gui:
+  nerdFontsVersion: "3"
+  showFileIcons: true
+  parseEmoji: true
+
+# initial tips on startup
+# disableStartupPopups: true
+
+os:
+  editPreset: "nvim"

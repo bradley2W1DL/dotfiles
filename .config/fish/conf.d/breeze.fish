@@ -44,15 +44,16 @@ abbr -a runsv 'python -m SimpleHTTPServer'
 abbr -a gbr 'gh browse' # github cli tool
 abbr -a gcb 'git checkout -b'
 abbr -a gfo 'git fetch origin'
+abbr -a gwt 'git worktree'
 
 # YADM aliases
 abbr -a yas 'yadm status'
 abbr -a yad 'yadm diff'
 # Use yadm enter to start a sub-shell with LazyGit to manage changes
 abbr -a yag 'yadm enter lazygit'
-# abbr -a yaa 'yadm add'
+abbr -a yaa 'yadm add'
 # abbr -a yac 'yadm commit'
-# abbr -a yafo 'yadm fetch origin'
+abbr -a yafo 'yadm fetch origin'
 # abbr -a yab 'yadm rebase'
 # abbr -a yabi 'yadm rebase -i'
 abbr -a yapl 'yadm pull --recurse-submodules'
