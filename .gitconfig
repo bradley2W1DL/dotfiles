@@ -6,7 +6,7 @@
 [pull]
   rebase = true
 [rebase]
-  updateRefs = true
+	updateRefs = true
 [init]
   defaultBranch = main 
 [core]
