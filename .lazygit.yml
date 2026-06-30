@@ -4,6 +4,9 @@ gui:
   nerdFontsVersion: "3"
   showFileIcons: true
   parseEmoji: true
+  theme:
+    selectedLineBgColor:
+      - reverse
 
 # initial tips on startup
 # disableStartupPopups: true
