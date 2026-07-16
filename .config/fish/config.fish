@@ -84,3 +84,8 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# GemFury for python libs -- pulls from Ruby bundler config
+set -x UV_INDEX_FURY_USERNAME $(grep BUNDLE_GEM__FURY__IO ~/.bundle/config | sed -E 's/.*"(.*)".*/\1/')
+set -x UV_INDEX_FURY_PASSWORD "" # empty password with "username" as token
+
