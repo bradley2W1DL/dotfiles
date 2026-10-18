@@ -22,4 +22,4 @@ source = ~/.config/hypr/autostart.conf
 source = ~/.config/hypr/workspaces.conf
 
 # Toggle config flags dynamically
-source = ~/.local/state/omarchy/toggles/hypr/*.conf
+# source = ~/.local/state/omarchy/toggles/hypr/*.conf
