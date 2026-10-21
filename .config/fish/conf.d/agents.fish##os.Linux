@@ -1,0 +1,37 @@
+# # # #
+# AI Agent related ENV variables
+# !Note: this file will be commited so no plaintext secrets!
+# # #
+
+if not type -q op
+  echo "⚠️Unable to set ENV vars becuase 1password cli plugin not installed/authenticated!"
+end
+
+# don't know what the hell is going on with this but need to delete the global env var for the "universal" var to be recognized
+# OpenAI key
+set -e --global OPENAI_API_KEY
+if type -q op && not set -q OPENAI_API_KEY # todo add condition here with short-circuit ENV var to prevent this during setup
+  echo "setting openai key in env 🤖"
+  # really only want to set this if the `op` command succeeds
+  set -Ux OPENAI_API_KEY (op --account my.1password.com read op://Private/openAI_chatGPT.nvim/credential --no-newline)
+end
+
+# OpenRouter AI model provider key
+set -e --global OPENROUTER_API_KEY
+if type -q op && not set -q OPENROUTER_API_KEY
+  echo "setting OpenRouter key in env 🤖"
+  set -Ux OPENROUTER_API_KEY (op --account my.1password.com read op://Private/OpenRouter_api_key_LIMIT/credential --no-newline)
+end
+
+if set -q OPENROUTER_API_KEY
+  # Configure claude to used OpenRouter models
+  set -x ANTHROPIC_BASE_URL "https://openrouter.ai/api"
+  set -x ANTHROPIC_AUTH_TOKEN $OPENROUTER_API_KEY
+  set -x ANTHROPIC_API_KEY "" # Must explicitly be empty to prevent fallback
+
+  set -x ANTHROPIC_DEFAULT_SONNET_MODEL "z-ai/glm-5.3"
+  set -x ANTHROPIC_DEFAULT_OPUS_MODEL "deepseek/deepseek-v4-pro-0813"
+  set -x ANTHROPIC_DEFAULT_HAIKU_MODEL "nvidia/nemotron-3.5-lightning:free"
+  set -x CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY 1
+end
+

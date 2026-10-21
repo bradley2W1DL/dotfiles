@@ -50,7 +50,7 @@ abbr -a yas 'yadm status'
 abbr -a yad 'yadm diff'
 # Use yadm enter to start a sub-shell with LazyGit to manage changes
 abbr -a yag 'yadm enter lazygit'
-# abbr -a yaa 'yadm add'
+abbr -a yaa 'yadm add' # Add files to start tracking with yadm
 # abbr -a yac 'yadm commit'
 # abbr -a yafo 'yadm fetch origin'
 # abbr -a yab 'yadm rebase'
