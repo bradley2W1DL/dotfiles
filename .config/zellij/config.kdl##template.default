@@ -228,6 +228,9 @@ plugins {
 //   - false
 //
 // pane_frames true
+pane_frame_style "full"
+// pre-0.45 stack rendering
+stacked_pane_list false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:

@@ -82,8 +82,10 @@ if ! command -v mise &> /dev/null; then
   source "~/.config/fish/config.fish"
 fi
 
-echo 'installing oh-my-fish...'
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+if ! command -v omf &> /dev/null; then
+  echo 'installing oh-my-fish...'
+  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+fi
 
 # install "pure" theme and ensure it's set
 omf install
@@ -98,18 +100,32 @@ if [ "$system_type" = "Darwin" ]; then
 FISH_SCRIPT
 fi
 
-if [ "$system_type" = "Linux" ]; then
+if [[ "$system_type" == "Linux" ]]; then
   # Install any additional packages we want/need
-  sudo pacman -S --needed zellij ttf-hack-nerd yazi ollama
+  sudo pacman -S --needed zellij ttf-hack-nerd yazi ollama 1password 1password-cli
 
   # Omarchy -> Yazi theme sync
   curl -fsSL https://raw.githubusercontent.com/joaofelipegalvao/omarchy-yazi/main/scripts/omarchy-yazi-install.sh | bash
 
+  echo "Open 1Password and authenticate with your account."
+  echo "Also go to Settings... -> Developer and 'Integrate with 1Password CLI"
+  read -s "Press Enter when you're ready to continue..."
+
   # AUR packages
-  yay -Sy --needed --noconfirm cbonsai brave-bin ripdrag
+  # remove conflicting
+  # yay -Ry cbonsai-git
+  # add desired
+  yay -Sy --needed --noconfirm cbonsai ripdrag
 fi
 
 cd "$HOME"
 echo " 󰊢 init LazyVim submodule"
 yadm submodule update --recursive --init
+
+if [[ "$system_type" == "Linux" ]]; then
+  echo "Refreshing Hyprland session to pickup these changes and set default shell to be 'fish'"
+  if command -v hyprctl >/dev/null 2>&1; then
+    hyprctl reload
+  fi
+fi
 
