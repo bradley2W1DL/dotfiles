@@ -79,16 +79,16 @@ sudo chsh -s $FISH_BIN $CURRENT_USER
 if ! command -v mise &> /dev/null; then
   # Installs mise and adds activation to ~/.config/fish/config.fish
   curl https://mise.run/fish | sh
-  source "~/.config/fish/config.fish"
+  source ~/.config/fish/config.fish
 fi
 
-if ! command -v omf &> /dev/null; then
+if ! fish -c "omf -v" &> /dev/null; then
   echo 'installing oh-my-fish...'
   curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 fi
 
 # install "pure" theme and ensure it's set
-omf install
+fish -c "omf install"
 
 if [ "$system_type" = "Darwin" ]; then
   # execute remaining setup scripts in fish
@@ -120,6 +120,25 @@ fi
 
 cd "$HOME"
 echo " 󰊢 init LazyVim submodule"
+NVIM_DIR="$HOME/.config/nvim"
+
+# Is .config/nvim recorded as a submodule (gitlink) in the yadm repo?
+nvim_mode=$(yadm ls-files -s -- .config/nvim 2>/dev/null | awk '{print $1}')
+
+# Is the working tree a proper submodule checkout? (.git is a file, not a dir)
+is_checkout=false
+[ -f "$NVIM_DIR/.git" ] && is_checkout=true
+
+if [ "$nvim_mode" = "160000" ] && $is_checkout; then
+  echo "nvim already a yadm submodule"
+else
+  # back up any existing content (skip if dir is absent or empty)
+  if [ -d "$NVIM_DIR" ] && [ -n "$(ls -A "$NVIM_DIR")" ]; then
+    echo "backing up existing nvim config to nvim-bak"
+    rm -rf "$HOME/.config/nvim-bak"
+    mv "$NVIM_DIR" "$HOME/.config/nvim-bak"
+  fi
+fi
 yadm submodule update --recursive --init
 
 if [[ "$system_type" == "Linux" ]]; then
