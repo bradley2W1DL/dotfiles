@@ -79,12 +79,16 @@ sudo chsh -s $FISH_BIN $CURRENT_USER
 if ! command -v mise &> /dev/null; then
   # Installs mise and adds activation to ~/.config/fish/config.fish
   curl https://mise.run/fish | sh
-  source ~/.config/fish/config.fish
+  # NOTE: no need to source config.fish here -- yadm has already restored it,
+  # and it's fish syntax which bash can't parse anyway
 fi
 
 if ! fish -c "omf -v" &> /dev/null; then
   echo 'installing oh-my-fish...'
-  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+  # --noninteractive: the installer ends by exec'ing an interactive fish shell,
+  # which would silently halt this script. Never pipe it into fish directly.
+  curl -fsSL https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install -o /tmp/omf-install.fish
+  fish /tmp/omf-install.fish --noninteractive
 fi
 
 # install "pure" theme and ensure it's set
@@ -102,20 +106,29 @@ fi
 
 if [[ "$system_type" == "Linux" ]]; then
   # Install any additional packages we want/need
-  sudo pacman -S --needed zellij ttf-hack-nerd yazi ollama 1password 1password-cli
+  sudo pacman -S --needed neovim ripgrep fd lazygit zellij ttf-hack-nerd yazi ollama 1password 1password-cli
 
   # Omarchy -> Yazi theme sync
   curl -fsSL https://raw.githubusercontent.com/joaofelipegalvao/omarchy-yazi/main/scripts/omarchy-yazi-install.sh | bash
 
   echo "Open 1Password and authenticate with your account."
   echo "Also go to Settings... -> Developer and 'Integrate with 1Password CLI"
-  read -s "Press Enter when you're ready to continue..."
+  read -rp "Press Enter when you're ready to continue..."
 
   # AUR packages
   # remove conflicting
   # yay -Ry cbonsai-git
   # add desired
   yay -Sy --needed --noconfirm cbonsai ripdrag
+
+  # Default terminal: ghostty (installs package + default config + sets xdg-terminals.list)
+  omarchy install terminal ghostty
+
+  # Default coding agent: claude. Write the preference file directly --
+  # `omarchy default agent claude` exec's the agent TUI, which would hijack this script.
+  mkdir -p "$HOME/.config/omarchy/defaults"
+  echo claude > "$HOME/.config/omarchy/defaults/agent"
+  mise where claude &>/dev/null || mise install -y claude
 fi
 
 cd "$HOME"
@@ -146,5 +159,9 @@ if [[ "$system_type" == "Linux" ]]; then
   if command -v hyprctl >/dev/null 2>&1; then
     hyprctl reload
   fi
+  # chsh only takes effect at next login; reboot so $SHELL is fish everywhere
+  echo "Setup complete! Rebooting in 5 seconds to make 'fish' the login shell (Ctrl+C to cancel)..."
+  sleep 5
+  omarchy system reboot
 fi
 
