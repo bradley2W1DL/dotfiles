@@ -28,7 +28,7 @@ if [ "$system_type" = "Darwin" ]; then
     echo 'homebrew needs to be installed...'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # Add brew to zsh path
+    # Add brew to zsh path (harmless if .zshrc is never used; fish PATH is set in the heredoc below)
     echo '# set PATH, MANPATH, etc. for Homebrew.' >> ~/.zshrc
     echo export PATH=$PATH:/opt/homebrew/bin >> ~/.zshrc
 
@@ -36,7 +36,11 @@ if [ "$system_type" = "Darwin" ]; then
   fi
 
   # makes sure `brew` is accessible in $PATH
-  source ~/.zshrc
+  if [ -f ~/.zshrc ]; then
+    source ~/.zshrc
+  else
+    export PATH="$PATH:/opt/homebrew/bin"
+  fi
 
   # Step 2: install fish
   if command -v fish &> /dev/null
@@ -78,23 +82,30 @@ sudo chsh -s $FISH_BIN $CURRENT_USER
 # Mise (package manager)
 if ! command -v mise &> /dev/null; then
   # Installs mise and adds activation to ~/.config/fish/config.fish
+  # NOTE: no need to source config.fish here -- yadm has already restored it,
+  # and it's fish syntax which bash can't parse anyway
   curl https://mise.run/fish | sh
-  source "~/.config/fish/config.fish"
 fi
 
-echo 'installing oh-my-fish...'
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+if ! fish -c "omf -v" &> /dev/null; then
+  echo 'installing oh-my-fish...'
+  # --noninteractive: the installer ends by exec'ing an interactive fish shell,
+  # which would silently halt this script. Never pipe it into fish directly.
+  curl -fsSL https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install -o /tmp/omf-install.fish
+  fish /tmp/omf-install.fish --noninteractive
+fi
 
 # install "pure" theme and ensure it's set
-omf install
+fish -c "omf install"
 
 if [ "$system_type" = "Darwin" ]; then
+  cd "$HOME"
   # execute remaining setup scripts in fish
   fish <<FISH_SCRIPT
   # ensure hombrew is in the $PATH
   fish_add_path /opt/homebrew/bin
 
-  $(pwd)/.config/yadm/mac_install.fish
+  $HOME/.config/yadm/mac_install.fish
 FISH_SCRIPT
 fi
 

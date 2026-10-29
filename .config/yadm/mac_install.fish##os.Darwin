@@ -11,6 +11,9 @@
 #  -> breeze (scm-breeze-ish)
 # xcode-select
 
+# `mas` entries in the Brewfile require being signed in to the App Store
+osascript -e 'display dialog "Sign in to the Mac App Store (App Store.app -> Store -> Sign In), then press Done" buttons {"Done"} default button "Done" with title "Action Required"'
+
 # run brew with local Brewfile
 brew bundle -v --file=$HOME/.config/yadm/Brewfile
 
@@ -30,23 +33,25 @@ echo "1Password login complete"
 #   omf install
 # end
 
-if ! test -e (pwd)/.config/fish/functions/fisher.fish
+if ! test -e $HOME/.config/fish/functions/fisher.fish
   echo 'installing Fisher plugin manager...'
-  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+  # git.io/fisher is a deprecated redirect; use the canonical URL
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/HEAD/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 end
 
-if ! test -e (pwd)/.config/fish/functions/breeze.fish
+if ! test -e $HOME/.config/fish/functions/breeze.fish
   echo 'installing breeze for git shortcuts...'
   fisher install shinriyo/breeze
 end
 
-if ! type -q xcode-select
+# xcode-select is always on PATH as a shim; -p is the real "installed?" check
+if ! xcode-select -p &>/dev/null
   echo "installing xcode-select dev tools (this is very slow 🐢)"
-  xcode-select -install
+  xcode-select --install
 end
 
 # ******* Setup Login Items *******
-osascript ./loginItems.applescript
+osascript $HOME/.config/yadm/loginItems.applescript
 
 # ******* Settings > MenuBar *******
 defaults write "com.apple.controlcenter" "NSStatusItem Visible ScreenMirroring" -bool false
